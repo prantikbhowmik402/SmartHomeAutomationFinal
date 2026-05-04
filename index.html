@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Home Automation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="manifest" href="/static/manifest.json">
+  <meta name="theme-color" content="#060d18">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SmartHome">
+  <link rel="apple-touch-icon" href="/static/icon-192.png">
+  <style>
+    /* ── Kitty & Energy btn pulse ─────────────────────── */
+    @keyframes kittyPulse {
+      0%,100% { box-shadow:0 4px 18px rgba(171,71,188,0.45); }
+      50%      { box-shadow:0 6px 28px rgba(171,71,188,0.8),0 0 0 5px rgba(171,71,188,0.1); }
+    }
+    @keyframes energyPulse {
+      0%,100% { box-shadow:0 4px 14px rgba(46,125,50,0.45); }
+      50%      { box-shadow:0 6px 22px rgba(46,125,50,0.8),0 0 0 4px rgba(46,125,50,0.1); }
+    }
+    #kitty-header-btn  { animation:kittyPulse  2.5s ease-in-out infinite; }
+    #energy-header-btn { animation:energyPulse 2.5s ease-in-out infinite; animation-delay:0.8s; }
+    #kitty-header-btn:hover  { transform:translateY(-3px) scale(1.1) !important; }
+    #energy-header-btn:hover { transform:translateY(-2px) scale(1.08) !important; }
+    @keyframes kittyMicPulse {
+      0%   { box-shadow: 0 0 0 0px rgba(236,64,122,0.6); }
+      70%  { box-shadow: 0 0 0 10px rgba(236,64,122,0); }
+      100% { box-shadow: 0 0 0 0px rgba(236,64,122,0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══════════════════════════════════════ -->
+<header>
+  <div class="top-bar">
+    <a href="/" class="home-btn">⌂ HOME</a>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+      🌙 <span class="toggle-label">Dark</span>
+    </button>
+    <!-- Account button inline in top-bar — no overlap -->
+    <div class="account-btn" style="margin-left:auto;">
+      {% if username %}
+        <div class="dropdown">
+          <button onclick="toggleDropdown()" class="dropbtn">👤 {{ username.split(' ')[0] }}</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="/logout">Logout</a>
+          </div>
+        </div>
+      {% else %}
+        <a href="/loginpage" class="home-btn">👤 Login</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <h1>Smart Home Automation</h1>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="🔍  Search feature..." oninput="filterCards()" />
+  </div>
+</header>
+
+<!-- ═══ ROOM TABS + HEADER BUTTONS ═══════════════════ -->
+<div style="width:100%;max-width:960px;padding:0 4px;margin-bottom:20px;">
+  <div style="display:flex;align-items:center;gap:10px;">
+
+    <div class="room-tabs-card" style="flex:1;">
+      <button class="room-tab active" id="tab-living"  onclick="switchRoom('living')" >🛋 Living</button>
+      <button class="room-tab"       id="tab-bedroom" onclick="switchRoom('bedroom')">🛏 Bedroom</button>
+      <button class="room-tab"       id="tab-kitchen" onclick="switchRoom('kitchen')">🍳 Kitchen</button>
+      <button class="room-tab"       id="tab-balcony" onclick="switchRoom('balcony')">🌿 Balcony</button>
+      <button class="room-tab"       id="tab-common"  onclick="switchRoom('common')" >🏠 Common</button>
+    </div>
+
+    <!-- Kitty AI -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0;">
+      <button onclick="openKittyPanel()" id="kitty-header-btn"
+        style="width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;
+               background:linear-gradient(135deg,#4a0080,#9c27b0);color:#fff;
+               font-size:22px;display:flex;align-items:center;justify-content:center;
+               box-shadow:0 4px 18px rgba(171,71,188,0.45);
+               transition:all 0.3s;margin:0;padding:0;line-height:1;">🤖</button>
+      <span style="font-size:9px;font-weight:700;color:var(--text-muted);letter-spacing:0.3px;">Kitty AI</span>
+    </div>
+
+    <!-- Energy -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0;">
+      <button onclick="openEnergyPanel()" id="energy-header-btn"
+        style="width:36px;height:36px;border-radius:10px;border:none;cursor:pointer;
+               background:linear-gradient(135deg,#1a4a00,#2e7d32);color:#fff;
+               font-size:16px;display:flex;align-items:center;justify-content:center;
+               box-shadow:0 4px 14px rgba(46,125,50,0.45);
+               transition:all 0.3s;margin:0;padding:0;">⚡</button>
+      <span style="font-size:9px;font-weight:700;color:var(--text-muted);letter-spacing:0.3px;">Energy</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MAIN CONTENT ══════════════════════════════════ -->
+<main class="grid-container" id="room-content-wrapper">
+
+<!-- ╔═══════════════════════════════════════════════════╗ -->
+<!-- ║               LIVING ROOM                        ║ -->
+<!-- ╚═══════════════════════════════════════════════════╝ -->
+<div class="room-section" id="room-living">
+
+  <!-- LIGHTS -->
+  <section class="card" id="card-living-light">
+    <h2><span class="card-icon">💡</span> Lights</h2>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <button class="power-btn" id="pwrbtn-living-light" onclick="toggleLight('living')" title="Toggle Light"></button>
+      <div>
+        <div class="device-status" id="living-light-status">OFF</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">Living Room Light</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAN SPEED -->
+  <section class="card" id="card-living-fan">
+    <h2><span class="card-icon">🌀</span> Fan Speed</h2>
+    <div class="fan-control">
+      <div class="fan-dial-wrap">
+        <svg class="fan-svg" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="58" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="10"/>
+          <circle id="fan-arc-living" cx="65" cy="65" r="58" fill="none"
+            stroke="url(#fanGrad)" stroke-width="10" stroke-linecap="round"
+            stroke-dasharray="0 365" stroke-dashoffset="91"
+            style="transition:stroke-dasharray 0.6s cubic-bezier(0.25,0.46,0.45,0.94)"/>
+          <defs>
+            <linearGradient id="fanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#29b6f6"/>
+              <stop offset="100%" stop-color="#0d47a1"/>
+            </linearGradient>
+          </defs>
+          <text x="65" y="60" text-anchor="middle" font-size="11" fill="var(--text-muted)" font-family="DM Sans">SPEED</text>
+          <text id="fan-num-living" x="65" y="80" text-anchor="middle" font-size="26" font-weight="700" fill="#29b6f6" font-family="JetBrains Mono">0</text>
+        </svg>
+        <!-- Fan blades icon -->
+        <svg class="fan-blades-svg" id="fan-blades-living" viewBox="0 0 52 52" fill="none">
+          <path d="M26 26 C18 18 20 6 26 6 C32 6 34 18 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <path d="M26 26 C34 18 46 20 46 26 C46 32 34 34 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <path d="M26 26 C34 34 32 46 26 46 C20 46 18 34 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <path d="M26 26 C18 34 6 32 6 26 C6 20 18 18 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <circle cx="26" cy="26" r="4" fill="rgba(255,255,255,0.3)"/>
+        </svg>
+      </div>
+      <div class="fan-steps">
+        <span style="font-size:11px;color:var(--text-muted);margin-right:2px;">OFF</span>
+        <button class="fan-step active" id="fan-living-0" onclick="setFanSpeed(0,'living')">0</button>
+        <button class="fan-step" id="fan-living-1" onclick="setFanSpeed(1,'living')">1</button>
+        <button class="fan-step" id="fan-living-2" onclick="setFanSpeed(2,'living')">2</button>
+        <button class="fan-step" id="fan-living-3" onclick="setFanSpeed(3,'living')">3</button>
+        <button class="fan-step" id="fan-living-4" onclick="setFanSpeed(4,'living')">4</button>
+        <button class="fan-step" id="fan-living-5" onclick="setFanSpeed(5,'living')">5</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURTAINS -->
+  <section class="card" id="card-living-curtain">
+    <h2><span class="card-icon">🪟</span> Curtains</h2>
+    <div class="curtain-visual">
+      <div class="curtain-panel curtain-left" id="curtain-left-living"></div>
+      <div class="curtain-panel curtain-right" id="curtain-right-living"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:10px;color:rgba(255,255,255,0.3);pointer-events:none;" id="curtain-label-living">CLOSED</div>
+    </div>
+    <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;padding:6px 10px;background:rgba(41,182,246,0.06);border-radius:8px;border:1px solid rgba(41,182,246,0.12);">
+      ☁️ Auto-closes on rain · Opens in sun
+    </div>
+    <div class="curtain-actions">
+      <button onclick="setCurtain('living',true)" style="margin:0;background:linear-gradient(135deg,#0d47a1,#0288d1);">↕ Open</button>
+      <button onclick="setCurtain('living',false)" style="margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">↔ Close</button>
+    </div>
+  </section>
+
+  <!-- LIGHT DIMMER -->
+  <section class="card" id="card-living-dimmer">
+    <h2><span class="card-icon">🔆</span> Light Dimmer</h2>
+    <div class="dimmer-control">
+      <div class="dimmer-preview" id="dimmer-preview-living">
+        <span class="dimmer-value-label" id="living-dimmer-label">50%</span>
+      </div>
+      <input type="range" class="dimmer-range" min="0" max="100" value="50"
+        id="living-dimmer" oninput="updateDimmer(this.value,'living')">
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="card">
+    <h2><span class="card-icon">⏰</span> Schedule Control</h2>
+    <label style="margin-bottom:6px;">Device</label>
+    <select id="living-scheduleDevice" style="margin-bottom:14px;">
+      <option value="light">💡 Light</option>
+      <option value="fan">🌀 Fan</option>
+      <option value="curtain">🪟 Curtain</option>
+    </select>
+    <div class="schedule-grid">
+      <div class="schedule-time-block">
+        <label>Turn ON</label>
+        <input type="time" id="living-onTime">
+      </div>
+      <div class="schedule-time-block">
+        <label>Turn OFF</label>
+        <input type="time" id="living-offTime">
+      </div>
+    </div>
+    <button onclick="setSchedule('living')" style="width:100%;margin:0;">
+      ⏰ Save Schedule
+    </button>
+    <p id="living-schedule-status" style="font-size:12px;color:var(--text-muted);margin-top:8px;"></p>
+    <div id="living-schedule-list" style="margin-top:8px;"></div>
+  </section>
+
+  <!-- GESTURE CONTROL — yellow theme -->
+  <section class="card" style="background:linear-gradient(135deg,rgba(30,22,0,0.75),rgba(40,30,0,0.85));border-color:rgba(255,202,40,0.2);" id="card-gesture">
+    <h2 style="color:var(--accent-yellow);border-color:rgba(255,202,40,0.2);">
+      <span class="card-icon" style="background:rgba(255,202,40,0.12);border-radius:8px;">✋</span>
+      Gesture Control
+      <span style="margin-left:auto;font-size:10px;font-weight:600;background:rgba(255,202,40,0.12);border:1px solid rgba(255,202,40,0.3);color:var(--accent-yellow);padding:3px 10px;border-radius:50px;letter-spacing:0.3px;">HIGHLIGHT</span>
+    </h2>
+    <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;">Hand gestures control living room light &amp; fan via webcam</p>
+    <div style="display:grid;gap:6px;margin-bottom:14px;">
+      <div class="gesture-hint-item"><span class="gesture-hint-emoji">🖐</span><span>Open Hand → Toggle Light</span></div>
+      <div class="gesture-hint-item"><span class="gesture-hint-emoji">✊</span><span>Fist → Fan ON / OFF</span></div>
+      <div class="gesture-hint-item"><span class="gesture-hint-emoji">👍</span><span>Thumbs Up → Speed +1</span></div>
+      <div class="gesture-hint-item"><span class="gesture-hint-emoji">👎</span><span>Thumbs Down → Speed −1</span></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:12px;">
+      <button onclick="startGesture()" style="flex:1;margin:0;background:linear-gradient(135deg,#e65100,#f57c00);box-shadow:0 0 16px rgba(255,120,0,0.3);">▶ Start</button>
+      <button onclick="stopGesture()"  style="flex:1;margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">⏹ Stop</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div class="gesture-status-badge" id="gesture-badge">
+        <div class="dot"></div>
+        <span id="gesture-state">Stopped</span>
+      </div>
+      <span id="gesture-action" style="font-size:12px;color:var(--accent-yellow);"></span>
+    </div>
+  </section>
+
+  <!-- KITTY VOICE — per room -->
+  <section class="card kitty-voice-card full-width" style="grid-column:1/-1;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#f48fb1;margin-bottom:3px;">🤖 Kitty Voice — Living Room</div>
+        <div style="font-size:12px;color:var(--text-muted);">Speak a command — Kitty controls this room</div>
+      </div>
+      <button id="room-voice-btn-living" onclick="startRoomVoice('living')"
+        style="margin:0;padding:11px 22px;font-size:14px;font-weight:700;border-radius:50px;
+               background:linear-gradient(135deg,#880e4f,#c2185b);
+               box-shadow:0 4px 18px rgba(194,24,91,0.5);
+               display:flex;align-items:center;gap:8px;white-space:nowrap;">
+        🎤 <span>Speak</span>
+      </button>
+    </div>
+    <div id="room-voice-result-living" style="display:none;margin-top:10px;padding:8px 14px;border-radius:10px;background:rgba(236,64,122,0.08);border:1px solid rgba(236,64,122,0.25);font-size:13px;color:#f48fb1;"></div>
+  </section>
+
+</div><!-- end room-living -->
+
+
+<!-- ╔═══════════════════════════════════════════════════╗ -->
+<!-- ║               BEDROOM                            ║ -->
+<!-- ╚═══════════════════════════════════════════════════╝ -->
+<div class="room-section" id="room-bedroom" style="display:none;">
+
+  <section class="card" id="card-bedroom-light">
+    <h2><span class="card-icon">💡</span> Lights</h2>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <button class="power-btn" id="pwrbtn-bedroom-light" onclick="toggleLight('bedroom')"></button>
+      <div>
+        <div class="device-status" id="bedroom-light-status">OFF</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">Bedroom Light</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="card-bedroom-fan">
+    <h2><span class="card-icon">🌀</span> Fan Speed</h2>
+    <div class="fan-control">
+      <div class="fan-dial-wrap">
+        <svg class="fan-svg" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="58" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="10"/>
+          <circle id="fan-arc-bedroom" cx="65" cy="65" r="58" fill="none"
+            stroke="url(#fanGrad)" stroke-width="10" stroke-linecap="round"
+            stroke-dasharray="0 365" stroke-dashoffset="91"
+            style="transition:stroke-dasharray 0.6s cubic-bezier(0.25,0.46,0.45,0.94)"/>
+          <text x="65" y="60" text-anchor="middle" font-size="11" fill="var(--text-muted)" font-family="DM Sans">SPEED</text>
+          <text id="fan-num-bedroom" x="65" y="80" text-anchor="middle" font-size="26" font-weight="700" fill="#29b6f6" font-family="JetBrains Mono">0</text>
+        </svg>
+        <svg class="fan-blades-svg" id="fan-blades-bedroom" viewBox="0 0 52 52" fill="none">
+          <path d="M26 26 C18 18 20 6 26 6 C32 6 34 18 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <path d="M26 26 C34 18 46 20 46 26 C46 32 34 34 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <path d="M26 26 C34 34 32 46 26 46 C20 46 18 34 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <path d="M26 26 C18 34 6 32 6 26 C6 20 18 18 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <circle cx="26" cy="26" r="4" fill="rgba(255,255,255,0.3)"/>
+        </svg>
+      </div>
+      <div class="fan-steps">
+        <button class="fan-step active" id="fan-bedroom-0" onclick="setFanSpeed(0,'bedroom')">0</button>
+        <button class="fan-step" id="fan-bedroom-1" onclick="setFanSpeed(1,'bedroom')">1</button>
+        <button class="fan-step" id="fan-bedroom-2" onclick="setFanSpeed(2,'bedroom')">2</button>
+        <button class="fan-step" id="fan-bedroom-3" onclick="setFanSpeed(3,'bedroom')">3</button>
+        <button class="fan-step" id="fan-bedroom-4" onclick="setFanSpeed(4,'bedroom')">4</button>
+        <button class="fan-step" id="fan-bedroom-5" onclick="setFanSpeed(5,'bedroom')">5</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="card-bedroom-curtain">
+    <h2><span class="card-icon">🪟</span> Curtains</h2>
+    <div class="curtain-visual">
+      <div class="curtain-panel curtain-left" id="curtain-left-bedroom"></div>
+      <div class="curtain-panel curtain-right" id="curtain-right-bedroom"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:10px;color:rgba(255,255,255,0.3);" id="curtain-label-bedroom">CLOSED</div>
+    </div>
+    <div class="curtain-actions">
+      <button onclick="setCurtain('bedroom',true)"  style="margin:0;background:linear-gradient(135deg,#0d47a1,#0288d1);">↕ Open</button>
+      <button onclick="setCurtain('bedroom',false)" style="margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">↔ Close</button>
+    </div>
+  </section>
+
+  <section class="card" id="card-bedroom-dimmer">
+    <h2><span class="card-icon">🔆</span> Light Dimmer</h2>
+    <div class="dimmer-control">
+      <div class="dimmer-preview" id="dimmer-preview-bedroom">
+        <span class="dimmer-value-label" id="bedroom-dimmer-label">50%</span>
+      </div>
+      <input type="range" class="dimmer-range" min="0" max="100" value="50"
+        id="bedroom-dimmer" oninput="updateDimmer(this.value,'bedroom')">
+    </div>
+  </section>
+
+  <!-- AC CARD -->
+  <section class="card" id="card-bedroom-ac">
+    <h2><span class="card-icon">❄️</span> Air Conditioning</h2>
+    <div class="ac-card-inner">
+      <div class="ac-display" id="ac-display-bedroom">
+        <div class="ac-snowflake" id="ac-snowflake-bedroom">❄️</div>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:600;color:var(--text-primary);" id="ac-status-text-bedroom">AC is OFF</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Click to toggle air conditioner</div>
+        </div>
+        <button class="power-btn" id="pwrbtn-bedroom-ac" onclick="toggleAC('bedroom')" style="width:52px;height:52px;font-size:18px;"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVERTER — merged smart control + status -->
+  <section class="card">
+    <h2><span class="card-icon">⚡</span> Inverter &amp; Battery</h2>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+      <div>
+        <div style="font-size:13px;color:var(--text-secondary);font-weight:600;" id="bedroom-inverter-status">Inverter OFF</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Grid power active</div>
+      </div>
+      <button class="power-btn" id="pwrbtn-bedroom-inverter" onclick="toggleInverter('bedroom')" style="width:52px;height:52px;font-size:18px;">⚡</button>
+    </div>
+    <div>
+      <div class="inverter-stat-row">
+        <span>Battery Level</span>
+        <span id="inv-batt-pct">--</span>
+      </div>
+      <div class="inverter-battery">
+        <div class="inverter-battery-fill" id="inv-batt-fill" style="width:72%"></div>
+      </div>
+      <div class="grid-2" style="gap:8px;margin-top:8px;">
+        <div class="inverter-stat-row" style="flex-direction:column;text-align:center;background:var(--surface-01);border-radius:10px;padding:8px;">
+          <span>Load</span><span id="inv-load">0 W</span>
+        </div>
+        <div class="inverter-stat-row" style="flex-direction:column;text-align:center;background:var(--surface-01);border-radius:10px;padding:8px;">
+          <span>Mode</span><span id="inv-mode">Grid</span>
+        </div>
+      </div>
+      <input type="number" id="bedroom-batteryLevel" placeholder="Simulate battery % (0-100)" min="0" max="100" style="margin-top:10px;">
+      <button onclick="checkInverterStatus('bedroom')" style="width:100%;margin-top:0;background:linear-gradient(135deg,#1a3a00,#2e7d32);">
+        🔋 Check Status
+      </button>
+      <p id="bedroom-inverterStatus" style="font-size:12px;color:var(--text-muted);margin-top:8px;padding:8px;background:var(--surface-01);border-radius:8px;display:none;"></p>
+    </div>
+  </section>
+
+  <!-- WATER LEVEL — compact -->
+  <section class="card">
+    <h2><span class="card-icon">💧</span> Water Level</h2>
+    <div class="water-compact">
+      <div class="water-tank">
+        <div class="water-fill" id="water-fill" style="height:40%;"></div>
+      </div>
+      <div class="water-info">
+        <div class="water-pct" id="water-pct-display">40%</div>
+        <div class="water-label">Tank Capacity</div>
+        <input type="range" min="0" max="100" value="40"
+          oninput="checkWaterLevel(this.value)" style="margin:8px 0 0;width:100%;">
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="card">
+    <h2><span class="card-icon">⏰</span> Schedule Control</h2>
+    <label>Device</label>
+    <select id="bedroom-scheduleDevice" style="margin-bottom:14px;">
+      <option value="light">💡 Light</option>
+      <option value="fan">🌀 Fan</option>
+      <option value="ac">❄️ AC</option>
+    </select>
+    <div class="schedule-grid">
+      <div class="schedule-time-block">
+        <label>Turn ON</label>
+        <input type="time" id="bedroom-onTime">
+      </div>
+      <div class="schedule-time-block">
+        <label>Turn OFF</label>
+        <input type="time" id="bedroom-offTime">
+      </div>
+    </div>
+    <button onclick="setSchedule('bedroom')" style="width:100%;margin:0;">⏰ Save Schedule</button>
+    <p id="bedroom-schedule-status" style="font-size:12px;color:var(--text-muted);margin-top:8px;"></p>
+    <div id="bedroom-schedule-list" style="margin-top:8px;"></div>
+  </section>
+
+  <!-- Kitty Voice -->
+  <section class="card kitty-voice-card full-width" style="grid-column:1/-1;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#f48fb1;margin-bottom:3px;">🤖 Kitty Voice — Bedroom</div>
+        <div style="font-size:12px;color:var(--text-muted);">Speak a command — Kitty controls this room</div>
+      </div>
+      <button id="room-voice-btn-bedroom" onclick="startRoomVoice('bedroom')"
+        style="margin:0;padding:11px 22px;font-size:14px;font-weight:700;border-radius:50px;
+               background:linear-gradient(135deg,#880e4f,#c2185b);
+               box-shadow:0 4px 18px rgba(194,24,91,0.5);
+               display:flex;align-items:center;gap:8px;white-space:nowrap;">
+        🎤 <span>Speak</span>
+      </button>
+    </div>
+    <div id="room-voice-result-bedroom" style="display:none;margin-top:10px;padding:8px 14px;border-radius:10px;background:rgba(236,64,122,0.08);border:1px solid rgba(236,64,122,0.25);font-size:13px;color:#f48fb1;"></div>
+  </section>
+
+</div><!-- end room-bedroom -->
+
+
+<!-- ╔═══════════════════════════════════════════════════╗ -->
+<!-- ║                KITCHEN                           ║ -->
+<!-- ╚═══════════════════════════════════════════════════╝ -->
+<div class="room-section" id="room-kitchen" style="display:none;">
+
+  <section class="card" id="card-kitchen-light">
+    <h2><span class="card-icon">💡</span> Lights</h2>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <button class="power-btn" id="pwrbtn-kitchen-light" onclick="toggleLight('kitchen')"></button>
+      <div>
+        <div class="device-status" id="kitchen-light-status">OFF</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">Kitchen Light</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="card-kitchen-fan">
+    <h2><span class="card-icon">🌀</span> Exhaust Fan</h2>
+    <div class="fan-control">
+      <div class="fan-dial-wrap">
+        <svg class="fan-svg" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="58" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="10"/>
+          <circle id="fan-arc-kitchen" cx="65" cy="65" r="58" fill="none"
+            stroke="url(#fanGrad)" stroke-width="10" stroke-linecap="round"
+            stroke-dasharray="0 365" stroke-dashoffset="91"
+            style="transition:stroke-dasharray 0.6s cubic-bezier(0.25,0.46,0.45,0.94)"/>
+          <text x="65" y="60" text-anchor="middle" font-size="11" fill="var(--text-muted)" font-family="DM Sans">SPEED</text>
+          <text id="fan-num-kitchen" x="65" y="80" text-anchor="middle" font-size="26" font-weight="700" fill="#29b6f6" font-family="JetBrains Mono">0</text>
+        </svg>
+        <svg class="fan-blades-svg" id="fan-blades-kitchen" viewBox="0 0 52 52" fill="none">
+          <path d="M26 26 C18 18 20 6 26 6 C32 6 34 18 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <path d="M26 26 C34 18 46 20 46 26 C46 32 34 34 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <path d="M26 26 C34 34 32 46 26 46 C20 46 18 34 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <path d="M26 26 C18 34 6 32 6 26 C6 20 18 18 26 26Z" fill="rgba(41,182,246,0.7)"/>
+          <circle cx="26" cy="26" r="4" fill="rgba(255,255,255,0.3)"/>
+        </svg>
+      </div>
+      <div class="fan-steps">
+        <button class="fan-step active" id="fan-kitchen-0" onclick="setFanSpeed(0,'kitchen')">0</button>
+        <button class="fan-step" id="fan-kitchen-1" onclick="setFanSpeed(1,'kitchen')">1</button>
+        <button class="fan-step" id="fan-kitchen-2" onclick="setFanSpeed(2,'kitchen')">2</button>
+        <button class="fan-step" id="fan-kitchen-3" onclick="setFanSpeed(3,'kitchen')">3</button>
+        <button class="fan-step" id="fan-kitchen-4" onclick="setFanSpeed(4,'kitchen')">4</button>
+        <button class="fan-step" id="fan-kitchen-5" onclick="setFanSpeed(5,'kitchen')">5</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAS LEAK -->
+  <section class="card">
+    <h2><span class="card-icon">⚠️</span> Gas Leak Detection</h2>
+    <div class="security-status" id="gas-status-box">
+      <div class="security-dot" id="gas-dot"></div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--text-primary);" id="gas-status">All Clear</div>
+        <div style="font-size:11px;color:var(--text-muted);">Kitchen gas sensor</div>
+      </div>
+    </div>
+    <button onclick="detectGas()" style="width:100%;margin-top:12px;">🔍 Simulate Leak</button>
+  </section>
+
+  <!-- SMOKE -->
+  <section class="card">
+    <h2><span class="card-icon">🔥</span> Smoke &amp; Fire</h2>
+    <div class="security-status" id="smoke-status-box">
+      <div class="security-dot" id="smoke-dot"></div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--text-primary);" id="smoke-status">No Smoke</div>
+        <div style="font-size:11px;color:var(--text-muted);">Kitchen smoke sensor</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px;">
+      <button onclick="detectSmoke()" style="flex:1;margin:0;">💨 Smoke</button>
+      <button onclick="fireAlert()"   style="flex:1;margin:0;background:linear-gradient(135deg,#b71c1c,#c62828);">🔥 Fire</button>
+    </div>
+    <p id="fire-status" style="font-size:12px;color:var(--text-muted);margin-top:8px;"></p>
+  </section>
+
+  <!-- WINDOW — auto rain, manual control -->
+  <section class="card" id="card-kitchen-window">
+    <h2><span class="card-icon">🪟</span> Kitchen Window</h2>
+    <div class="window-visual">
+      <div class="window-frame">
+        <div class="window-pane" id="win-pane-left-kitchen"></div>
+        <div class="window-pane" id="win-pane-right-kitchen"></div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;padding:6px 10px;background:rgba(41,182,246,0.06);border-radius:8px;border:1px solid rgba(41,182,246,0.12);">
+      🌧️ Auto-closes on rain detection
+    </div>
+    <div class="curtain-actions">
+      <button onclick="setWindow('kitchen',true)"  style="margin:0;background:linear-gradient(135deg,#0d47a1,#0288d1);">↕ Open</button>
+      <button onclick="setWindow('kitchen',false)" style="margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">↔ Close</button>
+    </div>
+    <p id="kitchen-window-status" style="font-size:12px;color:var(--text-muted);margin-top:8px;text-align:center;">Window Closed</p>
+  </section>
+
+  <!-- PLANT WATERING -->
+  <section class="card">
+    <h2><span class="card-icon">🌿</span> Plant Watering</h2>
+    <div class="plant-anim">
+      <div class="plant-icon-wrap" id="plant-wrap">
+        <div class="plant-drops" id="plant-drops">
+          <div class="drop"></div>
+          <div class="drop"></div>
+          <div class="drop"></div>
+        </div>
+        🪴
+      </div>
+      <div id="plant-status" style="font-size:13px;color:var(--text-secondary);font-weight:500;">Soil status unknown</div>
+      <button onclick="checkSoil('kitchen')" style="width:100%;margin:0;">
+        🌱 Check Soil
+      </button>
+    </div>
+  </section>
+
+  <!-- Kitty Voice -->
+  <section class="card kitty-voice-card full-width" style="grid-column:1/-1;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#f48fb1;margin-bottom:3px;">🤖 Kitty Voice — Kitchen</div>
+        <div style="font-size:12px;color:var(--text-muted);">Speak a command — Kitty controls this room</div>
+      </div>
+      <button id="room-voice-btn-kitchen" onclick="startRoomVoice('kitchen')"
+        style="margin:0;padding:11px 22px;font-size:14px;font-weight:700;border-radius:50px;
+               background:linear-gradient(135deg,#880e4f,#c2185b);
+               box-shadow:0 4px 18px rgba(194,24,91,0.5);
+               display:flex;align-items:center;gap:8px;white-space:nowrap;">
+        🎤 <span>Speak</span>
+      </button>
+    </div>
+    <div id="room-voice-result-kitchen" style="display:none;margin-top:10px;padding:8px 14px;border-radius:10px;background:rgba(236,64,122,0.08);border:1px solid rgba(236,64,122,0.25);font-size:13px;color:#f48fb1;"></div>
+  </section>
+
+</div><!-- end room-kitchen -->
+
+
+<!-- ╔═══════════════════════════════════════════════════╗ -->
+<!-- ║                BALCONY                           ║ -->
+<!-- ╚═══════════════════════════════════════════════════╝ -->
+<div class="room-section" id="room-balcony" style="display:none;">
+
+  <section class="card" id="card-balcony-light">
+    <h2><span class="card-icon">💡</span> Lights</h2>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <button class="power-btn" id="pwrbtn-balcony-light" onclick="toggleLight('balcony')"></button>
+      <div>
+        <div class="device-status" id="balcony-light-status">OFF</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">Balcony Light</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="card-icon">🌿</span> Plant Watering</h2>
+    <div class="plant-anim">
+      <div class="plant-icon-wrap" id="plant-wrap-balcony">
+        <div class="plant-drops" id="plant-drops-balcony">
+          <div class="drop"></div><div class="drop"></div><div class="drop"></div>
+        </div>
+        🌱
+      </div>
+      <div id="balcony-plant-status" style="font-size:13px;color:var(--text-secondary);font-weight:500;">Soil status unknown</div>
+      <button onclick="checkSoil('balcony')" style="width:100%;margin:0;">🌱 Check Soil</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="card-icon">🐶</span> Pet Feeder</h2>
+    <div style="text-align:center;padding:10px 0;">
+      <div style="font-size:48px;margin-bottom:8px;">🐾</div>
+      <button onclick="feedPet()" style="width:100%;margin:0;font-size:15px;padding:12px;background:linear-gradient(135deg,#4a148c,#7b1fa2);">
+        🍽 Feed Now
+      </button>
+      <p id="pet-status" style="font-size:13px;color:var(--text-muted);margin-top:10px;">Pet not fed yet</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="card-icon">🐾</span> Auto Pet Feeder</h2>
+    <label>Feeding Time</label>
+    <input type="time" id="feedTime">
+    <label>Grace Delay (minutes)</label>
+    <input type="number" id="graceDelay" placeholder="e.g. 10">
+    <button onclick="setPetFeederAutomation()" style="width:100%;margin:0;">⏰ Set Schedule</button>
+    <p id="pet-feeder-status" style="font-size:12px;color:var(--text-muted);margin-top:8px;"></p>
+  </section>
+
+  <section class="card">
+    <h2><span class="card-icon">🪟</span> Balcony Window</h2>
+    <div class="curtain-visual">
+      <div class="curtain-panel curtain-left" id="curtain-left-balcony"></div>
+      <div class="curtain-panel curtain-right" id="curtain-right-balcony"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:10px;color:rgba(255,255,255,0.3);" id="curtain-label-balcony">CLOSED</div>
+    </div>
+    <div class="curtain-actions">
+      <button onclick="setCurtain('balcony',true)"  style="margin:0;background:linear-gradient(135deg,#0d47a1,#0288d1);">↕ Open</button>
+      <button onclick="setCurtain('balcony',false)" style="margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">↔ Close</button>
+    </div>
+  </section>
+
+  <!-- Kitty Voice -->
+  <section class="card kitty-voice-card full-width" style="grid-column:1/-1;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#f48fb1;margin-bottom:3px;">🤖 Kitty Voice — Balcony</div>
+        <div style="font-size:12px;color:var(--text-muted);">Speak a command — Kitty controls this room</div>
+      </div>
+      <button id="room-voice-btn-balcony" onclick="startRoomVoice('balcony')"
+        style="margin:0;padding:11px 22px;font-size:14px;font-weight:700;border-radius:50px;
+               background:linear-gradient(135deg,#880e4f,#c2185b);
+               box-shadow:0 4px 18px rgba(194,24,91,0.5);
+               display:flex;align-items:center;gap:8px;white-space:nowrap;">
+        🎤 <span>Speak</span>
+      </button>
+    </div>
+    <div id="room-voice-result-balcony" style="display:none;margin-top:10px;padding:8px 14px;border-radius:10px;background:rgba(236,64,122,0.08);border:1px solid rgba(236,64,122,0.25);font-size:13px;color:#f48fb1;"></div>
+  </section>
+
+</div><!-- end room-balcony -->
+
+
+<!-- ╔═══════════════════════════════════════════════════╗ -->
+<!-- ║                COMMON                            ║ -->
+<!-- ╚═══════════════════════════════════════════════════╝ -->
+<div class="room-section" id="room-common" style="display:none;">
+
+  <!-- DOOR LOCK -->
+  <section class="card">
+    <h2><span class="card-icon">🔓</span> Smart Door Lock</h2>
+    <input type="password" id="doorPassword" placeholder="Enter door password">
+    <button onclick="unlockDoor()" style="width:100%;margin:0;">🔓 Unlock Door</button>
+    <p id="lock-status" style="font-size:13px;color:var(--text-muted);margin-top:10px;text-align:center;">Door is Locked 🔒</p>
+  </section>
+
+  <!-- DOORBELL + AUTO DOOR -->
+  <section class="card">
+    <h2><span class="card-icon">🔔</span> Door &amp; Bell</h2>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.3px;">Smart Bell</div>
+        <button onclick="ringBell()" style="width:100%;margin:0;">🔔 Press Door Bell</button>
+        <p id="bell-status" style="font-size:12px;color:var(--text-muted);margin-top:8px;">No visitor</p>
+      </div>
+      <hr style="border:none;border-top:1px solid var(--glass-border);">
+      <div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.3px;">Auto Door Opener</div>
+        <button onclick="approachDoor()" style="width:100%;margin:0;background:linear-gradient(135deg,#1a3a00,#2e7d32);">🚪 Simulate Approach</button>
+        <p id="auto-door-status" style="font-size:12px;color:var(--text-muted);margin-top:8px;">No one nearby</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRUDER — auto camera based -->
+  <section class="card">
+    <h2><span class="card-icon">🚨</span> Intruder Detection</h2>
+    <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;">Automatic motion-based detection via camera</p>
+    <div class="security-status safe" id="intruder-status-box">
+      <div class="security-dot"></div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--accent-green);" id="intruder-status">All Safe ✓</div>
+        <div style="font-size:11px;color:var(--text-muted);">Security monitoring active</div>
+      </div>
+    </div>
+    <button onclick="detectIntruder()" style="width:100%;margin-top:12px;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">
+      📷 Simulate Camera Check
+    </button>
+  </section>
+
+  <!-- FACE RECOGNITION — teal theme -->
+  <section class="card face-recog-card" id="face-main-card" style="grid-column:1/-1;">
+    <h2 style="color:#00bc8c;border-color:rgba(0,188,140,0.2);">
+      <span class="card-icon" style="background:rgba(0,188,140,0.12);">🤖</span>
+      Smart Face Recognition
+      <span style="margin-left:auto;font-size:10px;font-weight:600;background:rgba(0,188,140,0.1);border:1px solid rgba(0,188,140,0.3);color:#00bc8c;padding:3px 10px;border-radius:50px;">AI POWERED</span>
+    </h2>
+
+    <!-- Progress bar -->
+    <div id="face-task-bar" style="display:none;padding:10px 14px;border-radius:10px;
+         background:rgba(0,188,140,0.06);border:1px solid rgba(0,188,140,0.2);
+         margin-bottom:14px;font-size:13px;color:#00bc8c;
+         align-items:center;gap:10px;">
+      <span id="face-task-spinner" style="display:none;animation:spin 1s linear infinite;font-size:18px;">⏳</span>
+      <span id="face-task-msg" style="flex:1;">Ready</span>
+    </div>
+    <style>@keyframes spin { to { transform:rotate(360deg); } }</style>
+
+    <button id="face-scan-btn" onclick="faceRecognize()"
+      style="width:100%;font-size:14px;padding:13px;margin-bottom:10px;
+             background:linear-gradient(135deg,#004d40,#00695c);
+             box-shadow:0 0 20px rgba(0,188,140,0.25);">
+      📷 Scan &amp; Identify Face
+    </button>
+    <p id="face-result" style="font-size:13px;color:var(--text-secondary);margin-bottom:16px;"></p>
+
+    <hr style="border:none;border-top:1px solid rgba(0,188,140,0.15);margin:12px 0;">
+
+    <h3 style="font-size:13px;color:#00bc8c;margin-bottom:10px;font-weight:700;letter-spacing:0.4px;text-transform:uppercase;">Register New Person</h3>
+    <p style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">Enter name → Register → Look at camera for ~30s → Auto-trains</p>
+    <input type="text" id="face-reg-name" placeholder="Name (e.g. Rohit)">
+    <div style="display:flex;gap:8px;margin-top:-4px;">
+      <button id="face-reg-btn" onclick="faceRegister()"
+        style="flex:2;margin:0;background:linear-gradient(135deg,#004d40,#00695c);
+               box-shadow:0 0 16px rgba(0,188,140,0.2);">
+        📸 Register Face
+      </button>
+      <button onclick="faceTrain()"
+        style="flex:1;margin:0;background:linear-gradient(135deg,#1a237e,#283593);font-size:12px;">
+        🧠 Train
+      </button>
+    </div>
+
+    <hr style="border:none;border-top:1px solid rgba(0,188,140,0.15);margin:16px 0;">
+    <h3 style="font-size:13px;color:#00bc8c;margin-bottom:10px;font-weight:700;letter-spacing:0.4px;text-transform:uppercase;">User Profiles</h3>
+    <div id="face-users-list">
+      <p style="font-size:13px;color:var(--text-muted);">Loading...</p>
+    </div>
+  </section>
+
+  <!-- MUSIC PLAYER -->
+  <section class="card" style="grid-column:1/-1;">
+    <h2><span class="card-icon">🎵</span> Music Player</h2>
+    <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;">Auto-plays when a face is recognized. Search manually anytime.</p>
+    <div style="padding:12px 16px;border-radius:12px;background:var(--surface-01);border:1px solid var(--glass-border);margin-bottom:12px;">
+      <div style="font-size:14px;color:var(--text-primary);font-weight:500;" id="music-title">No song playing</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:3px;" id="music-status-text">Stopped</div>
+    </div>
+    <audio id="music-audio" controls style="width:100%;margin-bottom:12px;border-radius:10px;display:none;"></audio>
+    <div style="display:flex;gap:8px;margin-bottom:10px;">
+      <input type="text" id="music-search-input" placeholder="Search song..." style="flex:1;margin:0;">
+      <button onclick="musicPlay()" style="margin:0;padding:10px 16px;white-space:nowrap;">▶ Play</button>
+    </div>
+    <button onclick="musicStop()" style="width:100%;margin:0;background:linear-gradient(135deg,#b71c1c,#c62828);">⏹ Stop Music</button>
+  </section>
+
+  <!-- PUSH NOTIFICATIONS -->
+  <section class="card">
+    <h2><span class="card-icon">🔔</span> Push Notifications</h2>
+    <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;">Alerts for AI changes, intruder, gas leak, scheduled events</p>
+    <div class="notif-status-box" id="notif-status">🔔 Status: Checking...</div>
+    <div style="display:flex;gap:8px;margin-bottom:12px;">
+      <button id="notif-enable-btn" onclick="enableNotifications()" style="flex:1;margin:0;">🔔 Enable Alerts</button>
+      <button onclick="sendTestNotification()" style="flex:1;margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">🧪 Test</button>
+    </div>
+  </section>
+
+</div><!-- end room-common -->
+
+
+<!-- ═══ KITTY AI SLIDE PANEL ══════════════════════════ -->
+<div id="kitty-overlay" onclick="closeKittyPanel()"
+  style="display:none;position:fixed;inset:0;background:var(--overlay-bg);
+         backdrop-filter:blur(6px);z-index:900;opacity:0;transition:opacity 0.3s;"></div>
+
+<div id="kitty-panel"
+  style="display:none;position:fixed;top:0;right:0;width:min(560px,100vw);
+         height:100vh;overflow-y:auto;z-index:901;padding:22px;
+         background:var(--modal-bg);backdrop-filter:blur(24px);
+         border-left:1px solid var(--glass-border);
+         box-shadow:-16px 0 64px rgba(0,0,0,0.6);
+         transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);">
+
+  <div style="display:flex;justify-content:space-between;align-items:center;
+              margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--glass-border);">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:46px;height:46px;border-radius:50%;
+                  background:linear-gradient(135deg,#6a0dad,#9c27b0);
+                  display:flex;align-items:center;justify-content:center;
+                  font-size:22px;box-shadow:0 4px 16px rgba(171,71,188,0.5);">🤖</div>
+      <div>
+        <div style="font-size:17px;font-weight:700;color:var(--text-primary);">Kitty AI</div>
+        <div style="font-size:11px;color:var(--text-muted);">Smart Home Assistant</div>
+      </div>
+    </div>
+    <button onclick="closeKittyPanel()"
+      style="margin:0;width:36px;height:36px;padding:0;font-size:18px;
+             background:var(--surface-02);border:1px solid var(--glass-border);
+             border-radius:50%;color:var(--text-primary);
+             display:flex;align-items:center;justify-content:center;">✕</button>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:20px;">
+
+    <!-- Chat Card -->
+    <section class="card" style="margin:0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;border-bottom:1px solid var(--glass-border);padding-bottom:10px;flex-wrap:wrap;gap:8px;">
+        <h2 style="margin:0;border:none;padding:0;font-size:14px;">💬 Chat with Kitty</h2>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button id="kitty-tts-btn" onclick="toggleKittyTTS()"
+            style="margin:0;padding:5px 12px;font-size:12px;background:var(--surface-02);border:1px solid var(--glass-border);border-radius:50px;color:var(--text-secondary);">
+            🔇 <span id="kitty-tts-label">Voice OFF</span>
+          </button>
+          <button onclick="clearKittyChat()" style="margin:0;padding:5px 11px;font-size:12px;background:var(--surface-02);border:1px solid var(--glass-border);border-radius:50px;color:var(--text-secondary);">🗑</button>
+        </div>
+      </div>
+
+      <div id="kitty-chat-box" style="min-height:240px;max-height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;margin-bottom:14px;padding:4px;">
+        <div data-placeholder style="text-align:center;padding:28px 0;">
+          <div style="font-size:38px;margin-bottom:10px;">🤖</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.8;">
+            Hello! I'm <strong style="color:var(--text-primary);">Kitty</strong> — your AI Smart Home Assistant.<br>
+            Click <strong style="color:var(--accent-cyan);">📍 Share Location</strong> first, then ask me anything!
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick chips -->
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
+        <button onclick="kittyQuick('What is the outside temperature? Should I turn on the AC?')" style="font-size:11px;padding:5px 11px;border-radius:20px;margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">🌡 Temp</button>
+        <button onclick="kittyQuick('What time is sunset today?')"                               style="font-size:11px;padding:5px 11px;border-radius:20px;margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">🌇 Sunset</button>
+        <button onclick="kittyQuick('Turn off all the lights in the house')"                    style="font-size:11px;padding:5px 11px;border-radius:20px;margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">💡 All Off</button>
+        <button onclick="kittyQuick('Turn on the bedroom AC, it is very hot')"                  style="font-size:11px;padding:5px 11px;border-radius:20px;margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">❄ AC On</button>
+        <button onclick="kittyQuick('How is the weather right now? Any suggestions for my home?')" style="font-size:11px;padding:5px 11px;border-radius:20px;margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">🤔 Tips</button>
+        <button onclick="kittyQuick('Set the living room fan speed to 3')"                      style="font-size:11px;padding:5px 11px;border-radius:20px;margin:0;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">🌀 Fan</button>
+      </div>
+
+      <div style="display:flex;gap:8px;">
+        <input type="text" id="kitty-input" placeholder="Ask Kitty anything..." style="flex:1;margin:0;" onkeydown="if(event.key==='Enter') sendKitty()">
+        <button id="kitty-mic-btn" onclick="toggleKittyVoice()"
+          style="margin:0;padding:10px 14px;font-size:18px;background:var(--surface-02);border:1px solid var(--glass-border);border-radius:50px;color:var(--text-primary);">🎤</button>
+        <button onclick="sendKitty()" style="margin:0;padding:10px 18px;white-space:nowrap;">🚀</button>
+      </div>
+      <div id="kitty-voice-status" style="display:none;font-size:12px;color:#66bb6a;margin-top:6px;padding:5px 10px;background:rgba(102,187,106,0.08);border-radius:8px;border:1px solid rgba(102,187,106,0.2);">
+        🎤 Recording... will send automatically
+      </div>
+      <div id="kitty-typing" style="display:none;font-size:12px;color:var(--text-muted);margin-top:8px;padding:6px 0;">
+        🐱 Kitty is thinking...
+      </div>
+    </section>
+
+    <!-- Weather Card -->
+    <section class="card" style="margin:0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;border-bottom:1px solid var(--glass-border);padding-bottom:10px;flex-wrap:wrap;gap:8px;">
+        <h2 style="margin:0;border:none;padding:0;font-size:14px;">🌤 Live Weather & Sun</h2>
+        <div style="display:flex;gap:8px;">
+          <button id="locationBtn" onclick="shareLocation()" style="margin:0;padding:7px 13px;font-size:12px;">📍 Location</button>
+          <button onclick="refreshWeather()" style="margin:0;padding:7px 13px;font-size:12px;background:var(--surface-02);color:var(--text-secondary);border:1px solid var(--glass-border);">🔄</button>
+        </div>
+      </div>
+      <div id="weather-loading" style="text-align:center;color:var(--text-muted);font-size:13px;padding:20px 0;">📍 Share location to load weather</div>
+      <div id="weather-data" style="display:none;">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;">
+          <div class="weather-tile"><div class="wt-icon" id="w-icon">🌡</div><div class="wt-val" id="w-temp">--°C</div><div class="wt-label">Temp</div></div>
+          <div class="weather-tile"><div class="wt-icon">💧</div><div class="wt-val" id="w-humidity">--%</div><div class="wt-label">Humidity</div></div>
+          <div class="weather-tile"><div class="wt-icon">🌬</div><div class="wt-val" id="w-wind">--</div><div class="wt-label">Wind m/s</div></div>
+          <div class="weather-tile"><div class="wt-icon">🌅</div><div class="wt-val" id="w-sunrise" style="font-size:14px;color:var(--accent-amber);">--:--</div><div class="wt-label">Sunrise</div></div>
+          <div class="weather-tile"><div class="wt-icon">🌇</div><div class="wt-val" id="w-sunset"  style="font-size:14px;color:var(--accent-red);">--:--</div><div class="wt-label">Sunset</div></div>
+          <div class="weather-tile"><div class="wt-icon" id="w-day-icon">☀</div><div class="wt-val" id="w-daytime" style="font-size:13px;">--</div><div class="wt-label">Day/Night</div></div>
+        </div>
+        <div style="background:var(--surface-01);border:1px solid var(--glass-border);border-radius:10px;padding:9px 12px;font-size:12px;color:var(--text-secondary);">
+          📍 <span id="w-city">--</span> &nbsp;·&nbsp; <span id="w-condition">--</span> &nbsp;·&nbsp; Feels <span id="w-feels">--</span> &nbsp;·&nbsp; <span id="w-date" style="color:var(--text-muted);">--</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Auto Control -->
+    <section class="card" style="margin:0;">
+      <h2 style="font-size:14px;">🤖 AI Auto Control</h2>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">AI monitors weather & sun to auto-control devices</p>
+      <div style="padding:10px 14px;border-radius:10px;background:var(--surface-01);border:1px solid var(--glass-border);margin-bottom:12px;font-size:13px;">
+        Status: <span id="auto-state" style="color:var(--text-muted);font-weight:600;">Stopped</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+        <button onclick="startAutoControl()" style="flex:1;margin:0;padding:9px;">▶ Start</button>
+        <button onclick="stopAutoControl()" style="flex:1;margin:0;padding:9px;background:var(--btn-danger);">⏹ Stop</button>
+        <button onclick="runAutoOnce()" style="flex:1;margin:0;padding:9px;background:linear-gradient(135deg,#4a148c,#7b1fa2);">⚡ Now</button>
+      </div>
+      <select id="auto-interval" style="margin-bottom:10px;" onchange="saveIntervalPref(this.value)">
+        <option value="60">Every 1 minute</option>
+        <option value="300">Every 5 minutes</option>
+        <option value="600">Every 10 minutes</option>
+        <option value="1200">Every 20 minutes</option>
+        <option value="1800">Every 30 minutes</option>
+      </select>
+      <div id="last-auto-action" style="font-size:12px;color:var(--text-muted);line-height:1.8;"></div>
+    </section>
+
+    <!-- Memory -->
+    <section class="card" style="margin:0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;border-bottom:1px solid var(--glass-border);padding-bottom:10px;">
+        <h2 style="margin:0;border:none;padding:0;font-size:14px;">🧠 Kitty Memory</h2>
+        <button onclick="loadMemoryStats()" style="margin:0;padding:5px 12px;font-size:12px;background:var(--surface-02);border:1px solid var(--glass-border);border-radius:50px;color:var(--text-secondary);">📊 Stats</button>
+      </div>
+      <div id="memory-stats-box" style="background:var(--surface-01);border:1px solid var(--glass-border);border-radius:10px;padding:12px;margin-bottom:12px;font-size:13px;line-height:2;">
+        Loading...
+      </div>
+      <div id="memory-facts-box" style="background:var(--surface-01);border:1px solid var(--glass-border);border-radius:10px;padding:12px;margin-bottom:12px;font-size:12px;color:var(--text-muted);line-height:1.9;display:none;"></div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;">
+        <button onclick="clearKittyMemory()" style="flex:1;margin:0;padding:8px;font-size:12px;background:var(--btn-danger);">🗑 Clear Chat</button>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <input type="text" id="memory-fact-input" placeholder="e.g. I wake up at 7 AM" style="flex:1;margin:0;font-size:13px;">
+        <button onclick="teachKitty()" style="margin:0;padding:8px 14px;font-size:12px;white-space:nowrap;">✅ Teach</button>
+      </div>
+    </section>
+
+  </div>
+</div><!-- end kitty-panel -->
+
+
+<!-- ═══ ENERGY SLIDE PANEL ═══════════════════════════ -->
+<div id="energy-overlay" onclick="closeEnergyPanel()"
+  style="display:none;position:fixed;inset:0;background:var(--overlay-bg);
+         backdrop-filter:blur(6px);z-index:900;opacity:0;transition:opacity 0.3s;"></div>
+
+<div id="energy-panel"
+  style="display:none;position:fixed;top:0;right:0;width:min(600px,100vw);
+         height:100vh;overflow-y:auto;z-index:901;padding:22px;
+         background:var(--modal-bg);backdrop-filter:blur(24px);
+         border-left:1px solid var(--glass-border);
+         box-shadow:-16px 0 64px rgba(0,0,0,0.6);
+         transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);">
+
+  <div style="display:flex;justify-content:space-between;align-items:center;
+              margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--glass-border);">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#1a4a00,#2e7d32);
+                  display:flex;align-items:center;justify-content:center;font-size:22px;
+                  box-shadow:0 4px 14px rgba(46,125,50,0.5);">⚡</div>
+      <div>
+        <div style="font-size:17px;font-weight:700;color:var(--text-primary);">Energy Monitor</div>
+        <div style="font-size:11px;color:var(--text-muted);">Usage & Analytics</div>
+      </div>
+    </div>
+    <button onclick="closeEnergyPanel()"
+      style="margin:0;width:36px;height:36px;padding:0;font-size:18px;
+             background:var(--surface-02);border:1px solid var(--glass-border);
+             border-radius:50%;color:var(--text-primary);
+             display:flex;align-items:center;justify-content:center;">✕</button>
+  </div>
+
+  <section class="card" style="margin:0;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;border-bottom:1px solid var(--glass-border);padding-bottom:10px;">
+      <h2 style="margin:0;border:none;padding:0;font-size:14px;">⚡ Energy Analytics</h2>
+      <button onclick="refreshEnergy()" style="margin:0;padding:7px 13px;font-size:12px;">🔄 Refresh</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:16px;">
+      <div class="weather-tile"><div class="wt-icon">⚡</div><div class="wt-val" id="en-live-watts" style="color:var(--accent-amber);">-- W</div><div class="wt-label">Live</div></div>
+      <div class="weather-tile"><div class="wt-icon">📊</div><div class="wt-val" id="en-today-kwh">-- kWh</div><div class="wt-label">Today</div></div>
+      <div class="weather-tile"><div class="wt-icon">💰</div><div class="wt-val" id="en-today-cost" style="color:var(--accent-green);">₹--</div><div class="wt-label">Cost</div></div>
+      <div class="weather-tile"><div class="wt-icon">🔁</div><div class="wt-val" id="en-today-events" style="color:var(--accent-purple);">--</div><div class="wt-label">Events</div></div>
+    </div>
+    <div style="background:var(--surface-01);border:1px solid var(--glass-border);border-radius:10px;padding:14px;margin-bottom:14px;">
+      <div style="font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.4px;">📅 Weekly Usage (kWh)</div>
+      <div id="en-weekly-chart" style="display:flex;align-items:flex-end;gap:8px;height:80px;"></div>
+      <div id="en-weekly-labels" style="display:flex;gap:8px;margin-top:6px;"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+      <div style="background:var(--surface-01);border:1px solid var(--glass-border);border-radius:10px;padding:12px;">
+        <div style="font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.3px;">🏠 By Room</div>
+        <div id="en-room-breakdown" style="font-size:12px;color:var(--text-muted);line-height:2;">Loading...</div>
+      </div>
+      <div style="background:var(--surface-01);border:1px solid var(--glass-border);border-radius:10px;padding:12px;">
+        <div style="font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.3px;">🏆 Top Consumers</div>
+        <div id="en-top-consumers" style="font-size:12px;color:var(--text-muted);line-height:2;">Loading...</div>
+      </div>
+    </div>
+    <div style="background:var(--surface-01);border:1px solid var(--glass-border);border-radius:10px;padding:12px;">
+      <div style="font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.3px;">🕐 Recent Events</div>
+      <div id="en-recent-events" style="font-size:12px;color:var(--text-muted);max-height:200px;overflow-y:auto;line-height:1.9;">Loading...</div>
+    </div>
+  </section>
+</div><!-- end energy-panel -->
+
+
+<!-- ═══ ACTIVITY LOG (always visible bottom) ══════════ -->
+<section class="card full-width" style="grid-column:1/-1;margin-top:4px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;border-bottom:1px solid var(--glass-border);padding-bottom:10px;">
+    <h2 style="margin:0;border:none;padding:0;font-size:14px;">📋 Activity Log</h2>
+    <button onclick="clearLog()" style="margin:0;padding:6px 12px;font-size:12px;background:var(--surface-02);border:1px solid var(--glass-border);border-radius:50px;color:var(--text-secondary);">🗑 Clear</button>
+  </div>
+  <div id="activity-log" style="max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;">
+    <p style="color:var(--text-muted);font-size:13px;text-align:center;padding:20px 0;">No activity yet. Start using the dashboard!</p>
+  </div>
+</section>
+
+</main>
+
+<footer style="margin-top:32px;"></footer>
+
+<!-- ═══ SCRIPTS ════════════════════════════════════════ -->
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   SOCKET + GLOBAL STATE
+   ═══════════════════════════════════════════════════════ */
+const socket = io();
+
+let _gpsLat = null, _gpsLon = null;
+let _kittyTyping = false;
+
+/* — Fan arc math — */
+function setFanArc(room, speed) {
+  const arc = document.getElementById(`fan-arc-${room}`);
+  const num = document.getElementById(`fan-num-${room}`);
+  const blades = document.getElementById(`fan-blades-${room}`);
+  if (!arc) return;
+  const maxDash = 302; // circumference * (280/360)
+  const dash = (speed / 5) * maxDash;
+  arc.setAttribute('stroke-dasharray', `${dash} ${365 - dash}`);
+  if (num) num.textContent = speed;
+  // Update fan steps
+  [0,1,2,3,4,5].forEach(s => {
+    const btn = document.getElementById(`fan-${room}-${s}`);
+    if (btn) btn.classList.toggle('active', s === speed);
+  });
+  // Animate blades
+  if (blades) {
+    blades.classList.remove('spinning');
+    if (speed > 0) {
+      blades.classList.add('spinning');
+      blades.style.animationDuration = `${Math.max(0.4, 1.5 - speed * 0.2)}s`;
+    }
+  }
+}
+
+/* — Dimmer preview — */
+function updateDimmerPreview(room, value) {
+  const preview = document.getElementById(`dimmer-preview-${room}`);
+  const label   = document.getElementById(`${room}-dimmer-label`);
+  if (label) label.textContent = `${value}%`;
+  if (preview) {
+    const opacity = Math.max(0.05, value / 100);
+    preview.style.background = `linear-gradient(90deg, rgba(255,200,50,${opacity * 0.3}), rgba(255,200,50,${opacity * 0.95}))`;
+    preview.style.boxShadow  = value > 20 ? `0 0 ${value / 4}px rgba(255,202,40,${opacity * 0.4})` : 'none';
+  }
+}
+
+/* — Card ON state — */
+function setCardState(cardId, isOn) {
+  const card = document.getElementById(cardId);
+  if (!card) return;
+  card.classList.toggle('device-on', isOn);
+}
+
+/* — Power button ON state — */
+function setPowerBtn(btnId, isOn) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  btn.classList.toggle('on', isOn);
+  btn.innerHTML = isOn ? '⏻' : '⏻';
+  btn.title = isOn ? 'Turn OFF' : 'Turn ON';
+}
+
+/* — Device status text — */
+function setDeviceStatus(elId, isOn, onText, offText) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  el.textContent = isOn ? (onText || 'ON') : (offText || 'OFF');
+  el.classList.toggle('on', isOn);
+}
+
+/* — Curtain visual — */
+function setCurtainVisual(room, open) {
+  const left  = document.getElementById(`curtain-left-${room}`);
+  const right = document.getElementById(`curtain-right-${room}`);
+  const label = document.getElementById(`curtain-label-${room}`);
+  if (!left) return;
+  left.classList.toggle('open', open);
+  right.classList.toggle('open', open);
+  if (label) label.textContent = open ? 'OPEN' : 'CLOSED';
+}
+
+/* — Apply full state to UI — */
+function applyState(state) {
+  ['living','bedroom','kitchen','balcony'].forEach(room => {
+    const r = state[room]; if (!r) return;
+
+    // Light
+    setPowerBtn(`pwrbtn-${room}-light`, r.light);
+    setDeviceStatus(`${room}-light-status`, r.light);
+    setCardState(`card-${room}-light`, r.light);
+
+    // Fan
+    setFanArc(room, r.fan_speed || 0);
+    setCardState(`card-${room}-fan`, (r.fan_speed || 0) > 0);
+
+    // Curtain
+    setCurtainVisual(room, r.curtain);
+    setCardState(`card-${room}-curtain`, r.curtain);
+
+    // Dimmer
+    const dimEl = document.getElementById(`${room}-dimmer`);
+    if (dimEl) { dimEl.value = r.dimmer || 50; }
+    updateDimmerPreview(room, r.dimmer || 50);
+    setCardState(`card-${room}-dimmer`, r.light && (r.dimmer || 50) > 0);
+
+    // AC (bedroom only, but check all)
+    if (room === 'bedroom') {
+      const acDisplay = document.getElementById('ac-display-bedroom');
+      if (acDisplay) {
+        acDisplay.classList.toggle('on', r.ac);
+        document.getElementById('ac-status-text-bedroom').textContent = r.ac ? 'AC is ON — Cooling Active' : 'AC is OFF';
+      }
+      setPowerBtn('pwrbtn-bedroom-ac', r.ac);
+      setCardState('card-bedroom-ac', r.ac);
+
+      // Inverter
+      setPowerBtn('pwrbtn-bedroom-inverter', r.inverter);
+      const invStatus = document.getElementById('bedroom-inverter-status');
+      if (invStatus) invStatus.textContent = r.inverter ? 'Inverter ON — Backup Mode' : 'Inverter OFF — Grid Power';
+    }
+  });
+}
+
+/* ─ Socket events ─ */
+socket.on("state_update", applyState);
+
+socket.on("log_update", function(entries) {
+  const box = document.getElementById("activity-log");
+  if (!box) return;
+  if (!entries.length) {
+    box.innerHTML = '<p style="color:var(--text-muted);font-size:13px;text-align:center;padding:20px 0;">No activity yet.</p>';
+    return;
+  }
+  box.innerHTML = entries.map(e =>
+    `<div class="log-entry">
+       <span class="log-icon">${e.icon}</span>
+       <span class="log-msg">${e.message}</span>
+       <span class="log-time">${e.time}</span>
+     </div>`).join('');
+});
+
+socket.on("face_task", function(data) {
+  const spinning = ['recognizing','registering'].includes(data.status);
+  const icon = data.status === 'error' ? '❌' : data.status === 'done' ? '✅' : '⏳';
+  if (typeof faceShowTask === 'function') faceShowTask(`${icon} ${data.message}`, true, spinning);
+  if (data.status === 'done') {
+    if (typeof faceLoadUsers === 'function') setTimeout(() => faceLoadUsers(), 300);
+    const rb = document.getElementById('face-reg-btn');
+    if (rb) { rb.disabled = false; rb.textContent = '📸 Register Face'; }
+    if (typeof _faceResetScanBtn === 'function') _faceResetScanBtn();
+  }
+  if (data.status === 'error') {
+    const rb = document.getElementById('face-reg-btn');
+    if (rb) { rb.disabled = false; rb.textContent = '📸 Register Face'; }
+    if (typeof _faceResetScanBtn === 'function') _faceResetScanBtn();
+  }
+});
+
+socket.on("face_registered", function(data) {
+  if (data.success) {
+    if (typeof faceLoadUsers === 'function') setTimeout(() => faceLoadUsers(), 300);
+    if (typeof showToast === 'function') showToast(`✅ ${data.name} registered!`);
+  } else {
+    if (typeof showToast === 'function') showToast(`❌ Registration failed: ${data.message || ''}`);
+  }
+});
+
+socket.on("face_recognized", function(data) {
+  const resultEl = document.getElementById('face-result');
+  if (typeof _faceResetScanBtn === 'function') _faceResetScanBtn();
+  if (data.name !== 'Unknown') {
+    const musicInfo = data.play_music ? `🎵 Playing: ${data.profile?.music || '...'}` : '';
+    if (resultEl) resultEl.innerHTML =
+      `<span style="color:var(--accent-green);font-weight:600;">✅ ${data.message}</span><br>
+       <span style="font-size:12px;color:var(--text-muted);">
+         💡${data.profile?.light?'ON':'OFF'} · 🌀${data.profile?.fan_speed} · 🔆${data.profile?.dimmer}% · ❄${data.profile?.ac?'ON':'OFF'}
+       </span>${musicInfo ? '<br><span style="font-size:12px;color:#81d4fa;">'+musicInfo+'</span>' : ''}`;
+    if (typeof faceShowTask === 'function') faceShowTask(`✅ ${data.message}`, true, false);
+    if (data.play_music && data.profile?.music && typeof musicSearchAndPlay === 'function')
+      musicSearchAndPlay(data.profile.music);
+  } else {
+    if (resultEl) resultEl.innerHTML = `<span style="color:var(--accent-red);">❌ ${data.message}</span>`;
+    if (typeof faceShowTask === 'function') faceShowTask(`❌ ${data.message}`, true, false);
+  }
+  loadLog();
+});
+
+socket.on("music_update", function(data) {
+  const t = document.getElementById('music-title');
+  const s = document.getElementById('music-status-text');
+  if (t) t.textContent = data.title || 'No song playing';
+  if (s) s.textContent = data.status || 'Stopped';
+});
+
+socket.on("voice_status", function(data) {
+  // handled in script.js
+});
+
+socket.on("voice_command", function(data) {
+  loadLog();
+});
+
+socket.on("kitty_play_music", function(data) {
+  if (data.success && data.audio_url) {
+    _playAudio(data.audio_url, data.title);
+    const t = document.getElementById('music-title');
+    const s = document.getElementById('music-status-text');
+    if (t) t.textContent = '🎵 ' + data.title;
+    if (s) s.textContent = 'playing via Kitty';
+  } else if (data.query && typeof musicSearchAndPlay === 'function') {
+    musicSearchAndPlay(data.query);
+  }
+});
+
+socket.on("ai_automation", function(data) {
+  const el = document.getElementById('last-auto-action');
+  if (el) {
+    el.innerHTML = `✅ <strong style="color:var(--text-primary);">${data.reason}</strong><br>
+      <span style="color:var(--text-muted);">${(data.changed||[]).join(' · ')} — ${data.time}</span>`;
+  }
+  loadLog();
+});
+
+socket.on("ai_status", function(data) {
+  const el = document.getElementById('auto-state');
+  if (el) { el.textContent = data.running ? '✅ Running' : 'Stopped'; el.style.color = data.running ? 'var(--accent-green)' : 'var(--text-muted)'; }
+});
+
+socket.on("push_notification", function(data) {
+  if (typeof showPushNotification === 'function') showPushNotification(data.title, data.body, data.tag);
+});
+
+socket.on("gesture_action", function(data) {
+  const el = document.getElementById('gesture-action');
+  if (el) el.textContent = data.action || '';
+});
+
+/* Sensor Alert — browser notification only, no banner */
+socket.on("sensor_alert", function(data) {
+  if (!data.critical) return;
+  if ("Notification" in window && Notification.permission === "granted") {
+    try {
+      new Notification("🏠 Smart Home Alert", {
+        body: data.message,
+        icon: "/static/icon-192.png",
+        tag: data.type || "alert",
+        requireInteraction: true
+      });
+    } catch(e) {}
+  }
+});
+
+/* Request notification permission early */
+(function() {
+  if ("Notification" in window && Notification.permission === "default") {
+    setTimeout(() => Notification.requestPermission(), 3000);
+  }
+})();
+
+/* ─ Room tabs ─ */
+const ROOM_ORDER = ['living','bedroom','kitchen','balcony','common'];
+let currentRoomIndex = 0;
+
+function switchRoom(room) {
+  const newIndex  = ROOM_ORDER.indexOf(room);
+  const direction = newIndex > currentRoomIndex ? 'slide-right' : 'slide-left';
+  currentRoomIndex = newIndex;
+  const wrapper = document.getElementById('room-content-wrapper');
+  document.querySelectorAll('.room-section').forEach(s => { s.classList.remove('visible'); s.style.display='none'; });
+  document.querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
+  wrapper.classList.remove('slide-right','slide-left');
+  const section = document.getElementById(`room-${room}`);
+  section.style.display = 'contents';
+  section.classList.add('visible');
+  document.getElementById(`tab-${room}`).classList.add('active');
+  void wrapper.offsetWidth;
+  wrapper.classList.add(direction);
+  setTimeout(() => wrapper.classList.remove('slide-right','slide-left'), 400);
+  if (room === 'common') setTimeout(() => { if (typeof faceLoadUsers==='function') faceLoadUsers(); }, 150);
+  localStorage.setItem('activeRoom', room);
+  if (typeof _onRoomSwitch === 'function') _onRoomSwitch(room);
+}
+
+// Restore room
+(function() {
+  const saved = localStorage.getItem('activeRoom') || 'living';
+  const idx   = ROOM_ORDER.indexOf(saved);
+  currentRoomIndex = idx >= 0 ? idx : 0;
+  const finalRoom  = idx >= 0 ? saved : 'living';
+  document.querySelectorAll('.room-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
+  const tabEl = document.getElementById(`tab-${finalRoom}`);
+  const secEl = document.getElementById(`room-${finalRoom}`);
+  if (tabEl) tabEl.classList.add('active');
+  if (secEl) { secEl.style.display = 'contents'; secEl.classList.add('visible'); }
+})();
+
+/* ─ DOMContentLoaded init ─ */
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('/get_state').then(r=>r.json()).then(applyState).catch(()=>{});
+  loadLog();
+
+  // Restore saved interval preference immediately so the select
+  // shows the right value even before the panel is opened
+  const savedPref = localStorage.getItem('autoIntervalPref');
+  if (savedPref) {
+    const sel = document.getElementById('auto-interval');
+    if (sel) {
+      let found = false;
+      for (let opt of sel.options) {
+        if (opt.value === savedPref) { opt.selected = true; found = true; break; }
+      }
+      if (!found) {
+        const opt = document.createElement('option');
+        opt.value = savedPref;
+        opt.textContent = `Every ${Math.round(parseInt(savedPref)/60)} minutes`;
+        opt.selected = true;
+        sel.appendChild(opt);
+      }
+    }
+  }
+
+  loadAIStatus();
+  autoGetLocation();
+  setTimeout(() => { if (typeof faceLoadUsers === 'function') faceLoadUsers(); }, 800);
+  if (typeof checkNotificationStatus === 'function') checkNotificationStatus();
+  // Init all dimmers to correct preview
+  ['living','bedroom'].forEach(room => {
+    const dimEl = document.getElementById(`${room}-dimmer`);
+    if (dimEl) updateDimmerPreview(room, dimEl.value);
+  });
+  // Start simulated inverter data
+  simulateInverter();
+});
+
+/* ─ Theme ─ */
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light-theme');
+  const btn = document.getElementById('themeBtn');
+  btn.innerHTML = isLight ? '☀️ <span class="toggle-label">Light</span>' : '🌙 <span class="toggle-label">Dark</span>';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+(function() {
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-theme');
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('themeBtn');
+      if (btn) btn.innerHTML = '☀️ <span class="toggle-label">Light</span>';
+    });
+  }
+})();
+
+/* ─ Dropdown ─ */
+function toggleDropdown() { document.getElementById("myDropdown").classList.toggle("show"); }
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) document.getElementById('myDropdown')?.classList.remove('show');
+};
+
+/* ═══════════════════════════════════════════════════════
+   AI / KITTY FUNCTIONS
+   ═══════════════════════════════════════════════════════ */
+function shareLocation() {
+  const btn = document.getElementById('locationBtn');
+  if (!navigator.geolocation) { alert('Geolocation not supported'); return; }
+  btn.textContent = '⏳ Getting GPS...'; btn.disabled = true;
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      _gpsLat = pos.coords.latitude; _gpsLon = pos.coords.longitude;
+      btn.textContent = '✅ Location Active'; btn.disabled = false;
+      fetch('/ai/set_location', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({lat:_gpsLat,lon:_gpsLon}) });
+      loadWeather();
+    },
+    (err) => { btn.textContent = '❌ Location denied'; btn.disabled = false; alert('Allow location in browser settings'); },
+    { timeout:10000, enableHighAccuracy:false }
+  );
+}
+
+function autoGetLocation() {
+  if (!navigator.geolocation) return;
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      _gpsLat = pos.coords.latitude; _gpsLon = pos.coords.longitude;
+      fetch('/ai/set_location', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({lat:_gpsLat,lon:_gpsLon}) });
+      loadWeather();
+      const btn = document.getElementById('locationBtn');
+      if (btn) btn.textContent = '✅ Location Active';
+    },
+    (err) => {}, { timeout:8000, enableHighAccuracy:false }
+  );
+}
+
+function loadWeather() {
+  if (!_gpsLat) return;
+  fetch('/ai/context').then(r=>r.json()).then(data => {
+    if (data.error) return;
+    const w = data.weather || {}, s = data.sun || {};
+    document.getElementById('weather-loading').style.display = 'none';
+    document.getElementById('weather-data').style.display    = 'block';
+    const cond = (w.condition||'').toLowerCase();
+    let icon = '🌡';
+    if (cond.includes('rain')||cond.includes('drizzle')) icon='🌧';
+    else if (cond.includes('thunder')) icon='⛈';
+    else if (cond.includes('snow')) icon='❄';
+    else if (cond.includes('mist')||cond.includes('fog')) icon='🌫';
+    else if (cond.includes('cloud')) icon='☁';
+    else if (cond.includes('clear')) icon = w.is_hot?'☀':'🌤';
+    document.getElementById('w-icon').textContent     = icon;
+    document.getElementById('w-temp').textContent     = `${w.temp??'--'}°C`;
+    document.getElementById('w-humidity').textContent = `${w.humidity??'--'}%`;
+    document.getElementById('w-wind').textContent     = `${w.wind_speed??'--'}`;
+    document.getElementById('w-sunrise').textContent  = s.sunrise||'--:--';
+    document.getElementById('w-sunset').textContent   = s.sunset||'--:--';
+    document.getElementById('w-daytime').textContent  = s.is_daytime?'Daytime':'Night';
+    document.getElementById('w-day-icon').textContent = s.is_daytime?'☀':'🌙';
+    document.getElementById('w-city').textContent     = w.city||'--';
+    document.getElementById('w-condition').textContent= w.description||'--';
+    document.getElementById('w-feels').textContent    = `${w.feels_like??'--'}°C`;
+    document.getElementById('w-date').textContent     = data.date||'--';
+    // Auto curtain/window logic based on weather
+    if (w.is_raining) {
+      showToast('🌧 Rain detected — curtains auto-closed, kitchen window closed');
+    }
+  }).catch(()=>{});
+}
+
+function refreshWeather() {
+  if (!_gpsLat) { alert('Share location first!'); return; }
+  document.getElementById('weather-loading').style.display = 'block';
+  document.getElementById('weather-data').style.display    = 'none';
+  loadWeather();
+}
+
+function loadAIStatus() {
+  fetch('/ai/status').then(r=>r.json()).then(data => {
+    const el = document.getElementById('auto-state');
+    if (el) {
+      el.textContent = data.running ? '✅ Running' : 'Stopped';
+      el.style.color = data.running ? 'var(--accent-green)' : 'var(--text-muted)';
+    }
+
+    // ── Sync interval select with server value ───────────────
+    // Server is the single source of truth when running.
+    // Fall back to localStorage preference when stopped.
+    const sel = document.getElementById('auto-interval');
+    if (sel) {
+      let intervalToShow = null;
+      if (data.running && data.interval) {
+        // Server is running — show its actual interval
+        intervalToShow = String(data.interval);
+      } else {
+        // Not running — restore last user-selected value
+        intervalToShow = localStorage.getItem('autoIntervalPref') || '300';
+      }
+      // Set the matching option; if none exists add it temporarily
+      let found = false;
+      for (let opt of sel.options) {
+        if (opt.value === intervalToShow) { opt.selected = true; found = true; break; }
+      }
+      if (!found) {
+        // Value exists on server but not in dropdown (e.g. custom) — add it
+        const opt = document.createElement('option');
+        opt.value = intervalToShow;
+        opt.textContent = `Every ${Math.round(parseInt(intervalToShow)/60)} minutes`;
+        opt.selected = true;
+        sel.appendChild(opt);
+      }
+    }
+    // ────────────────────────────────────────────────────────
+
+    if (data.location?.lat && !_gpsLat) {
+      _gpsLat = data.location.lat; _gpsLon = data.location.lon;
+      loadWeather();
+      const btn = document.getElementById('locationBtn');
+      if (btn) btn.textContent = '✅ Location Active';
+    }
+
+    if (data.last_result?.reason) {
+      const el2 = document.getElementById('last-auto-action');
+      if (el2) el2.textContent = `Last: ${data.last_result.reason} (${data.last_result.time})`;
+    }
+  }).catch(()=>{});
+}
+
+// Save interval choice to localStorage whenever user changes it
+function saveIntervalPref(value) {
+  localStorage.setItem('autoIntervalPref', value);
+}
+
+function startAutoControl() {
+  if (!_gpsLat) { alert('Share location first!'); return; }
+  const sel      = document.getElementById('auto-interval');
+  const interval = sel ? sel.value : (localStorage.getItem('autoIntervalPref') || '300');
+  // Persist the chosen value so it survives panel close/reopen
+  localStorage.setItem('autoIntervalPref', interval);
+  fetch('/ai/start_auto', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({interval:parseInt(interval)}) })
+    .then(r=>r.json()).then(data => {
+      const el = document.getElementById('auto-state');
+      if (el) { el.textContent = '✅ Running'; el.style.color = 'var(--accent-green)'; }
+      showToast(data.message || 'AI Auto Control started!');
+    });
+}
+function stopAutoControl() {
+  fetch('/ai/stop_auto', {method:'POST'}).then(()=>{
+    const el = document.getElementById('auto-state');
+    if (el) { el.textContent = 'Stopped'; el.style.color = 'var(--text-muted)'; }
+  });
+}
+function runAutoOnce() {
+  if (!_gpsLat) { alert('Share location first!'); return; }
+  const el = document.getElementById('last-auto-action');
+  if (el) el.textContent = '⏳ AI checking conditions...';
+  fetch('/ai/auto_run', {method:'POST'}).then(r=>r.json()).then(data => {
+    const reason = data.reason || 'No changes needed';
+    const actions = data.actions || [];
+    if (el) el.innerHTML = `✅ <strong style="color:var(--text-primary);">${reason}</strong><br>
+      <span style="color:var(--text-muted);">${actions.length ? actions.map(a=>`${a.room} ${a.device}→${a.value}`).join(' · ') : 'no changes'}</span>`;
+    if (actions.length) loadLog();
+  }).catch(()=>{ if (el) el.textContent='❌ Error — check Flask logs'; });
+}
+
+/* ─ Kitty Chat ─ */
+function kittyQuick(msg) { document.getElementById('kitty-input').value = msg; sendKitty(); }
+
+function sendKitty() {
+  if (_kittyTyping) return;
+  const input = document.getElementById('kitty-input');
+  const msg   = input.value.trim(); if (!msg) return;
+  input.value = '';
+  appendJarvisMsg('user', msg, []);
+  _kittyTyping = true;
+  document.getElementById('kitty-typing').style.display = 'block';
+  fetch('/ai/chat', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({message:msg, lat:_gpsLat, lon:_gpsLon})
+  }).then(r=>r.json()).then(data => {
+    document.getElementById('kitty-typing').style.display = 'none';
+    _kittyTyping = false;
+    appendJarvisMsg('kitty', data.reply || 'Something went wrong.', data.actions || []);
+    if ((data.actions||[]).length) loadLog();
+  }).catch(() => {
+    document.getElementById('kitty-typing').style.display = 'none';
+    _kittyTyping = false;
+    appendJarvisMsg('kitty', '❌ Cannot connect to server.', []);
+  });
+}
+
+function appendJarvisMsg(role, text, actions) {
+  const box = document.getElementById('kitty-chat-box');
+  const isBot = role === 'kitty';
+  const time  = new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+  const ph = box.querySelector('[data-placeholder]'); if (ph) ph.remove();
+  let actionsHtml = '';
+  if (actions && actions.length) {
+    actionsHtml = `<div style="margin-top:6px;font-size:11px;color:${isBot?'var(--accent-cyan)':'rgba(255,255,255,0.7)'};">
+      ✅ ${actions.map(a=>`${a.room} ${a.device}`).join(', ')}</div>`;
+  }
+  const bubble = `<div style="display:flex;justify-content:${isBot?'flex-start':'flex-end'};gap:8px;align-items:flex-end;">
+    ${isBot?'<div style="font-size:20px;flex-shrink:0;margin-bottom:2px;">🤖</div>':''}
+    <div style="max-width:80%;padding:10px 14px;
+         border-radius:${isBot?'4px 14px 14px 14px':'14px 4px 14px 14px'};
+         background:${isBot?'var(--surface-02)':'linear-gradient(135deg,#0d47a1,#0288d1)'};
+         border:1px solid ${isBot?'var(--glass-border)':'transparent'};
+         font-size:13px;line-height:1.65;color:${isBot?'var(--text-primary)':'#fff'};">
+      ${text.replace(/\n/g,'<br>')}
+      ${actionsHtml}
+      <div style="font-size:10px;margin-top:5px;opacity:0.4;">${time}</div>
+    </div>
+    ${!isBot?'<div style="font-size:20px;flex-shrink:0;margin-bottom:2px;">👤</div>':''}
+  </div>`;
+  box.insertAdjacentHTML('beforeend', bubble);
+  box.scrollTop = box.scrollHeight;
+  if (isBot && typeof KittyTTS !== 'undefined' && KittyTTS.enabled) KittyTTS.speak(text);
+}
+
+function toggleKittyTTS() {
+  const btn = document.getElementById('kitty-tts-btn');
+  if (typeof KittyTTS === 'undefined') return;
+  KittyTTS.enabled = !KittyTTS.enabled;
+  localStorage.setItem('kittyTTS', KittyTTS.enabled ? '1' : '0');
+  if (KittyTTS.enabled) {
+    btn.style.background = 'linear-gradient(135deg,#1565c0,#0288d1)';
+    btn.style.borderColor = '#0288d1'; btn.style.color = '#fff';
+    btn.innerHTML = '🔊 <span id="kitty-tts-label">Voice ON</span>';
+    showToast('🔊 Kitty voice enabled!');
+  } else {
+    btn.style.background = 'var(--surface-02)'; btn.style.borderColor = 'var(--glass-border)'; btn.style.color = 'var(--text-secondary)';
+    btn.innerHTML = '🔇 <span id="kitty-tts-label">Voice OFF</span>';
+    window.speechSynthesis?.cancel();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof KittyTTS !== 'undefined') {
+    KittyTTS.enabled = localStorage.getItem('kittyTTS') === '1';
+    if (KittyTTS.enabled) {
+      const btn = document.getElementById('kitty-tts-btn');
+      if (btn) { btn.style.background='linear-gradient(135deg,#1565c0,#0288d1)'; btn.style.borderColor='#0288d1'; btn.style.color='#fff'; btn.innerHTML='🔊 <span id="kitty-tts-label">Voice ON</span>'; }
+    }
+  }
+});
+
+function clearKittyChat() {
+  fetch('/ai/clear_chat', {method:'POST'});
+  const box = document.getElementById('kitty-chat-box');
+  box.innerHTML = `<div data-placeholder style="text-align:center;padding:28px 0;">
+    <div style="font-size:38px;margin-bottom:10px;">🤖</div>
+    <div style="font-size:13px;color:var(--text-muted);">Chat cleared! Kitty is ready 🐱</div>
+  </div>`;
+}
+
+/* ─ Panels ─ */
+function openKittyPanel() {
+  const panel = document.getElementById('kitty-panel'), overlay = document.getElementById('kitty-overlay');
+  panel.style.display = 'block'; overlay.style.display = 'block';
+  requestAnimationFrame(() => requestAnimationFrame(() => { panel.style.transform = 'translateX(0)'; overlay.style.opacity = '1'; }));
+  loadAIStatus(); if (typeof loadMemoryStats==='function') loadMemoryStats();
+  document.body.style.overflow = 'hidden';
+}
+function closeKittyPanel() {
+  const panel = document.getElementById('kitty-panel'), overlay = document.getElementById('kitty-overlay');
+  panel.style.transform = 'translateX(100%)'; overlay.style.opacity = '0';
+  setTimeout(() => { panel.style.display='none'; overlay.style.display='none'; }, 360);
+  document.body.style.overflow = ''; window.speechSynthesis?.cancel();
+}
+function openEnergyPanel() {
+  const panel = document.getElementById('energy-panel'), overlay = document.getElementById('energy-overlay');
+  overlay.style.display = 'block'; panel.style.display = 'block';
+  requestAnimationFrame(() => requestAnimationFrame(() => { panel.style.transform = 'translateX(0)'; overlay.style.opacity = '1'; }));
+  refreshEnergy(); if (typeof loadMemoryStats==='function') loadMemoryStats(); if (typeof checkNotificationStatus==='function') checkNotificationStatus();
+  document.body.style.overflow = 'hidden';
+}
+function closeEnergyPanel() {
+  const panel = document.getElementById('energy-panel'), overlay = document.getElementById('energy-overlay');
+  panel.style.transform = 'translateX(100%)'; overlay.style.opacity = '0';
+  setTimeout(() => { panel.style.display='none'; overlay.style.display='none'; }, 360);
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') { closeKittyPanel(); closeEnergyPanel(); } });
+
+/* ─ Gesture ─ */
+let gesturePolling = null;
+function startGesture() {
+  fetch("/start_gesture",{method:"POST"}).then(r=>r.json()).then(data => {
+    if (data.success) {
+      document.getElementById("gesture-state").textContent = "Running";
+      startGesturePolling();
+    } else {
+      showToast('❌ ' + data.message);
+    }
+  });
+}
+function stopGesture() {
+  fetch("/stop_gesture",{method:"POST"}).then(()=>{
+    document.getElementById("gesture-state").textContent = "Stopped";
+    stopGesturePolling();
+  });
+}
+function startGesturePolling() {
+  if (gesturePolling) return;
+  gesturePolling = setInterval(() => {
+    fetch("/gesture_status").then(r=>r.json()).then(data => {
+      const stateEl = document.getElementById("gesture-state");
+      if (data.status === "running") {
+        if (stateEl) stateEl.textContent = "Running";
+      } else if (data.status === "error") {
+        if (stateEl) stateEl.textContent = "Error ❌";
+        showToast('❌ Gesture error: ' + data.last_action);
+        stopGesturePolling();
+      } else {
+        if (stateEl) stateEl.textContent = "Stopped";
+        stopGesturePolling();
+      }
+      const actEl = document.getElementById("gesture-action");
+      if (data.last_action && actEl) actEl.textContent = data.last_action;
+    });
+  }, 1200);
+}
+function stopGesturePolling() { clearInterval(gesturePolling); gesturePolling = null; }
+
+/* ─ Inverter simulation ─ */
+function simulateInverter() {
+  let batt = 72;
+
+  function refreshInverterUI() {
+    // Gently fluctuate by a tiny amount — realistic slow drain/charge
+    batt = Math.min(100, Math.max(10, batt + (Math.random() * 1.2 - 0.6)));
+    const pctEl   = document.getElementById('inv-batt-pct');
+    const fillEl  = document.getElementById('inv-batt-fill');
+    const loadEl  = document.getElementById('inv-load');
+    const modeEl  = document.getElementById('inv-mode');
+    const invOn   = document.getElementById('pwrbtn-bedroom-inverter')?.classList.contains('on');
+    if (pctEl)  pctEl.textContent  = Math.round(batt) + '%';
+    if (fillEl) fillEl.style.width = batt + '%';
+    if (loadEl) loadEl.textContent = invOn ? (Math.round(80 + Math.random() * 40)) + ' W' : '0 W';
+    if (modeEl) modeEl.textContent = invOn ? 'Battery' : 'Grid';
+  }
+
+  // Show initial values immediately
+  refreshInverterUI();
+
+  // Then refresh every 5 minutes (300000ms) — realistic, not jumpy
+  setInterval(refreshInverterUI, 300000);
+}
+
+/* ─ PWA Service Worker ─ */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/static/service-worker.js').catch(()=>{}));
+}
+</script>
+
+<!-- Kitty Whisper Voice (same as original) -->
+<script>
+let _kittyVoiceActive = false, _mediaRecorder = null, _audioChunks = [];
+
+async function toggleKittyVoice() {
+  if (_kittyVoiceActive) { _stopKittyRecording(); return; }
+  const micBtn = document.getElementById('kitty-mic-btn');
+  const statusEl = document.getElementById('kitty-voice-status');
+  let stream;
+  try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
+  catch (err) {
+    if (statusEl) { statusEl.textContent = '❌ Mic denied!'; statusEl.style.display = 'block'; }
+    setTimeout(() => { if (statusEl) statusEl.style.display = 'none'; }, 3000);
+    return;
+  }
+  _kittyVoiceActive = true; _audioChunks = [];
+  const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus') ? 'audio/webm;codecs=opus'
+    : MediaRecorder.isTypeSupported('audio/webm') ? 'audio/webm'
+    : MediaRecorder.isTypeSupported('audio/ogg;codecs=opus') ? 'audio/ogg;codecs=opus' : 'audio/mp4';
+  try { _mediaRecorder = new MediaRecorder(stream, { mimeType }); } catch(e) { _mediaRecorder = new MediaRecorder(stream); }
+  _mediaRecorder.ondataavailable = (e) => { if (e.data?.size > 0) _audioChunks.push(e.data); };
+  _mediaRecorder.onstop = async () => {
+    stream.getTracks().forEach(t => t.stop());
+    if (!_audioChunks.length) { _resetKittyMic(); return; }
+    if (micBtn) micBtn.textContent = '⏳';
+    if (statusEl) { statusEl.textContent = '⏳ Processing...'; statusEl.style.display = 'block'; }
+    const actualMime = _mediaRecorder.mimeType || mimeType;
+    const blob = new Blob(_audioChunks, { type: actualMime }); _audioChunks = [];
+    const ext = actualMime.includes('ogg') ? '.ogg' : actualMime.includes('mp4') ? '.mp4' : '.webm';
+    const formData = new FormData(); formData.append('audio', blob, `voice${ext}`);
+    try {
+      const res = await fetch('/voice/whisper', { method:'POST', body:formData });
+      const data = await res.json();
+      if (data.success && data.text) {
+        const inputEl = document.getElementById('kitty-input');
+        if (inputEl) inputEl.value = data.text;
+        if (statusEl) statusEl.textContent = `✅ "${data.text}" — Sending...`;
+        setTimeout(() => { sendKitty(); if (statusEl) statusEl.style.display = 'none'; }, 600);
+      } else {
+        if (statusEl) statusEl.textContent = `❌ ${data.error || 'Could not understand'}`;
+        setTimeout(() => { if (statusEl) statusEl.style.display = 'none'; }, 3500);
+      }
+    } catch(e) {
+      if (statusEl) statusEl.textContent = '❌ Server error';
+      setTimeout(() => { if (statusEl) statusEl.style.display = 'none'; }, 3500);
+    }
+    _resetKittyMic();
+  };
+  _mediaRecorder.start();
+  if (micBtn) { micBtn.textContent = '⏹'; micBtn.style.background = 'rgba(239,83,80,0.2)'; micBtn.style.borderColor = '#ef5350'; micBtn.style.animation = 'kittyMicPulse 1s infinite'; }
+  if (statusEl) { statusEl.textContent = '🔴 Recording... press ⏹ (max 8s)'; statusEl.style.display = 'block'; }
+  setTimeout(() => { if (_kittyVoiceActive) _stopKittyRecording(); }, 8000);
+}
+function _stopKittyRecording() { if (_mediaRecorder?.state !== 'inactive') _mediaRecorder?.stop(); _kittyVoiceActive = false; }
+function _resetKittyMic() {
+  _kittyVoiceActive = false;
+  const micBtn = document.getElementById('kitty-mic-btn');
+  if (micBtn) { micBtn.textContent = '🎤'; micBtn.style.background = 'var(--surface-02)'; micBtn.style.borderColor = 'var(--glass-border)'; micBtn.style.animation = ''; }
+}
+</script>
+
+<!-- ═══ KITTY LISTEN ANIMATION ════════════════════════ -->
+<div class="kitty-listen-overlay" id="kitty-listen-overlay" style="display:none;">
+  <div class="kitty-bubble" id="kitty-anim-bubble">
+    <div class="kitty-dot-ring"></div>
+    <span class="kitty-icon">🤖</span>
+    <div class="kitty-waves">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <span class="kitty-status-text" id="kitty-anim-text">Kitty sun rahi hai...</span>
+  </div>
+</div>
+
+</body>
+</html>

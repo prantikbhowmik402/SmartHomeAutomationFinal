@@ -1,0 +1,32 @@
+{
+  "prantik2": {
+    "light": true,
+    "fan_speed": 2,
+    "dimmer": 70,
+    "curtain": false,
+    "ac": false,
+    "inverter": false,
+    "music": "",
+    "greeting": "Welcome home!"
+  },
+  "pra": {
+    "light": true,
+    "fan_speed": 2,
+    "dimmer": 70,
+    "curtain": false,
+    "ac": false,
+    "inverter": false,
+    "music": "",
+    "greeting": "Welcome home!"
+  },
+  "prantik": {
+    "ac": false,
+    "curtain": true,
+    "dimmer": 20,
+    "fan_speed": 4,
+    "greeting": "hi Prantik ",
+    "inverter": false,
+    "light": false,
+    "music": "nauka dubi"
+  }
+}

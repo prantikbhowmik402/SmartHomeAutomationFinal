@@ -1,0 +1,5046 @@
+{
+  "events": [
+    {
+      "timestamp": "2026-05-03T09:10:45.961772",
+      "date": "2026-05-03",
+      "time": "09:10:45",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:10:45.990337",
+      "date": "2026-05-03",
+      "time": "09:10:45",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:10:46.020551",
+      "date": "2026-05-03",
+      "time": "09:10:46",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:10:50.119278",
+      "date": "2026-05-03",
+      "time": "09:10:50",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:10:50.705114",
+      "date": "2026-05-03",
+      "time": "09:10:50",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:10:52.608903",
+      "date": "2026-05-03",
+      "time": "09:10:52",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:10:55.666989",
+      "date": "2026-05-03",
+      "time": "09:10:55",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:11:03.937561",
+      "date": "2026-05-03",
+      "time": "09:11:03",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:11:04.580840",
+      "date": "2026-05-03",
+      "time": "09:11:04",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:11:09.049668",
+      "date": "2026-05-03",
+      "time": "09:11:09",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:11:11.778398",
+      "date": "2026-05-03",
+      "time": "09:11:11",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:11:18.124066",
+      "date": "2026-05-03",
+      "time": "09:11:18",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:11:21.485918",
+      "date": "2026-05-03",
+      "time": "09:11:21",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:11:24.242066",
+      "date": "2026-05-03",
+      "time": "09:11:24",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:11:24.564605",
+      "date": "2026-05-03",
+      "time": "09:11:24",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:11:27.142478",
+      "date": "2026-05-03",
+      "time": "09:11:27",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:11:30.909085",
+      "date": "2026-05-03",
+      "time": "09:11:30",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:11:54.475421",
+      "date": "2026-05-03",
+      "time": "09:11:54",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:11:54.504840",
+      "date": "2026-05-03",
+      "time": "09:11:54",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:11:54.529153",
+      "date": "2026-05-03",
+      "time": "09:11:54",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:11:54.557691",
+      "date": "2026-05-03",
+      "time": "09:11:54",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:13:31.378899",
+      "date": "2026-05-03",
+      "time": "09:13:31",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:13:35.563360",
+      "date": "2026-05-03",
+      "time": "09:13:35",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:13:37.774227",
+      "date": "2026-05-03",
+      "time": "09:13:37",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:13:39.937915",
+      "date": "2026-05-03",
+      "time": "09:13:39",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:13:41.503263",
+      "date": "2026-05-03",
+      "time": "09:13:41",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:13:42.719010",
+      "date": "2026-05-03",
+      "time": "09:13:42",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 2,
+      "watts": 40,
+      "kwh_this_session": 0.0011
+    },
+    {
+      "timestamp": "2026-05-03T09:13:44.608790",
+      "date": "2026-05-03",
+      "time": "09:13:44",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 3,
+      "watts": 60,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:13:46.234942",
+      "date": "2026-05-03",
+      "time": "09:13:46",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 4,
+      "watts": 75,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:13:48.935964",
+      "date": "2026-05-03",
+      "time": "09:13:48",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:13:50.761841",
+      "date": "2026-05-03",
+      "time": "09:13:50",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 5,
+      "watts": 90,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:13:53.008845",
+      "date": "2026-05-03",
+      "time": "09:13:53",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:13:54.629014",
+      "date": "2026-05-03",
+      "time": "09:13:54",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 3,
+      "watts": 60,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:13:56.250806",
+      "date": "2026-05-03",
+      "time": "09:13:56",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:13:58.097517",
+      "date": "2026-05-03",
+      "time": "09:13:58",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:13:59.969186",
+      "date": "2026-05-03",
+      "time": "09:13:59",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:14:02.401416",
+      "date": "2026-05-03",
+      "time": "09:14:02",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 3,
+      "watts": 60,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:14:03.471481",
+      "date": "2026-05-03",
+      "time": "09:14:03",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:14:05.465990",
+      "date": "2026-05-03",
+      "time": "09:14:05",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:14:07.245887",
+      "date": "2026-05-03",
+      "time": "09:14:07",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 3,
+      "watts": 60,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:14:11.818813",
+      "date": "2026-05-03",
+      "time": "09:14:11",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 2,
+      "watts": 40,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T09:14:13.761842",
+      "date": "2026-05-03",
+      "time": "09:14:13",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 1,
+      "watts": 20,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:14:15.554374",
+      "date": "2026-05-03",
+      "time": "09:14:15",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 2,
+      "watts": 40,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:14:17.132531",
+      "date": "2026-05-03",
+      "time": "09:14:17",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:14:18.721291",
+      "date": "2026-05-03",
+      "time": "09:14:18",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:14:20.259803",
+      "date": "2026-05-03",
+      "time": "09:14:20",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:14:22.494236",
+      "date": "2026-05-03",
+      "time": "09:14:22",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:15:04.249825",
+      "date": "2026-05-03",
+      "time": "09:15:04",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:15:10.438116",
+      "date": "2026-05-03",
+      "time": "09:15:10",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:33:26.354942",
+      "date": "2026-05-03",
+      "time": "09:33:26",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:33:29.776283",
+      "date": "2026-05-03",
+      "time": "09:33:29",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:34:57.161089",
+      "date": "2026-05-03",
+      "time": "09:34:57",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0138
+    },
+    {
+      "timestamp": "2026-05-03T09:39:14.231831",
+      "date": "2026-05-03",
+      "time": "09:39:14",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0014
+    },
+    {
+      "timestamp": "2026-05-03T09:42:44.675357",
+      "date": "2026-05-03",
+      "time": "09:42:44",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0009
+    },
+    {
+      "timestamp": "2026-05-03T09:45:37.547667",
+      "date": "2026-05-03",
+      "time": "09:45:37",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:47:14.105453",
+      "date": "2026-05-03",
+      "time": "09:47:14",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 3,
+      "watts": 60,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:47:34.479789",
+      "date": "2026-05-03",
+      "time": "09:47:34",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T09:49:35.891731",
+      "date": "2026-05-03",
+      "time": "09:49:35",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0005
+    },
+    {
+      "timestamp": "2026-05-03T09:50:41.240713",
+      "date": "2026-05-03",
+      "time": "09:50:41",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0003
+    },
+    {
+      "timestamp": "2026-05-03T09:53:07.652706",
+      "date": "2026-05-03",
+      "time": "09:53:07",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0006
+    },
+    {
+      "timestamp": "2026-05-03T10:36:57.873784",
+      "date": "2026-05-03",
+      "time": "10:36:57",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:36:59.914390",
+      "date": "2026-05-03",
+      "time": "10:36:59",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:41:08.398372",
+      "date": "2026-05-03",
+      "time": "10:41:08",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.001
+    },
+    {
+      "timestamp": "2026-05-03T10:41:09.831527",
+      "date": "2026-05-03",
+      "time": "10:41:09",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:41:13.299685",
+      "date": "2026-05-03",
+      "time": "10:41:13",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0011
+    },
+    {
+      "timestamp": "2026-05-03T10:41:14.842175",
+      "date": "2026-05-03",
+      "time": "10:41:14",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:45:16.341221",
+      "date": "2026-05-03",
+      "time": "10:45:16",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.001
+    },
+    {
+      "timestamp": "2026-05-03T10:45:16.598509",
+      "date": "2026-05-03",
+      "time": "10:45:16",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:50:56.535156",
+      "date": "2026-05-03",
+      "time": "10:50:56",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0014
+    },
+    {
+      "timestamp": "2026-05-03T10:50:57.141896",
+      "date": "2026-05-03",
+      "time": "10:50:57",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:50:59.573851",
+      "date": "2026-05-03",
+      "time": "10:50:59",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0024
+    },
+    {
+      "timestamp": "2026-05-03T10:50:59.794538",
+      "date": "2026-05-03",
+      "time": "10:50:59",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:51:15.195403",
+      "date": "2026-05-03",
+      "time": "10:51:15",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T10:57:12.352814",
+      "date": "2026-05-03",
+      "time": "10:57:12",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:13.217411",
+      "date": "2026-05-03",
+      "time": "10:57:13",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:14.399474",
+      "date": "2026-05-03",
+      "time": "10:57:14",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:15.320869",
+      "date": "2026-05-03",
+      "time": "10:57:15",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:16.099870",
+      "date": "2026-05-03",
+      "time": "10:57:16",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:16.797266",
+      "date": "2026-05-03",
+      "time": "10:57:16",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:17.463559",
+      "date": "2026-05-03",
+      "time": "10:57:17",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:18.167589",
+      "date": "2026-05-03",
+      "time": "10:57:18",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:18.370436",
+      "date": "2026-05-03",
+      "time": "10:57:18",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:18.540767",
+      "date": "2026-05-03",
+      "time": "10:57:18",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:18.715081",
+      "date": "2026-05-03",
+      "time": "10:57:18",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:18.882283",
+      "date": "2026-05-03",
+      "time": "10:57:18",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:19.037876",
+      "date": "2026-05-03",
+      "time": "10:57:19",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:19.202831",
+      "date": "2026-05-03",
+      "time": "10:57:19",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:19.363944",
+      "date": "2026-05-03",
+      "time": "10:57:19",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:19.532043",
+      "date": "2026-05-03",
+      "time": "10:57:19",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:19.663573",
+      "date": "2026-05-03",
+      "time": "10:57:19",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:19.888173",
+      "date": "2026-05-03",
+      "time": "10:57:19",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:32.287596",
+      "date": "2026-05-03",
+      "time": "10:57:32",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:32.930195",
+      "date": "2026-05-03",
+      "time": "10:57:32",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:33.865734",
+      "date": "2026-05-03",
+      "time": "10:57:33",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:34.530659",
+      "date": "2026-05-03",
+      "time": "10:57:34",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:35.381302",
+      "date": "2026-05-03",
+      "time": "10:57:35",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:57:36.369639",
+      "date": "2026-05-03",
+      "time": "10:57:36",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:59:19.606082",
+      "date": "2026-05-03",
+      "time": "10:59:19",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:59:21.305428",
+      "date": "2026-05-03",
+      "time": "10:59:21",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:59:22.626157",
+      "date": "2026-05-03",
+      "time": "10:59:22",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:59:23.693174",
+      "date": "2026-05-03",
+      "time": "10:59:23",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:59:27.221623",
+      "date": "2026-05-03",
+      "time": "10:59:27",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:59:28.667836",
+      "date": "2026-05-03",
+      "time": "10:59:28",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:59:29.773449",
+      "date": "2026-05-03",
+      "time": "10:59:29",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:59:31.413386",
+      "date": "2026-05-03",
+      "time": "10:59:31",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:59:32.335612",
+      "date": "2026-05-03",
+      "time": "10:59:32",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T10:59:34.405623",
+      "date": "2026-05-03",
+      "time": "10:59:34",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:02:34.724924",
+      "date": "2026-05-03",
+      "time": "11:02:34",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:02:36.790029",
+      "date": "2026-05-03",
+      "time": "11:02:36",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:02:42.656186",
+      "date": "2026-05-03",
+      "time": "11:02:42",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:02:44.621201",
+      "date": "2026-05-03",
+      "time": "11:02:44",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:48:18.453155",
+      "date": "2026-05-03",
+      "time": "11:48:18",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:48:42.023355",
+      "date": "2026-05-03",
+      "time": "11:48:42",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T11:49:23.997019",
+      "date": "2026-05-03",
+      "time": "11:49:23",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:49:26.222322",
+      "date": "2026-05-03",
+      "time": "11:49:26",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:49:28.224320",
+      "date": "2026-05-03",
+      "time": "11:49:28",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:49:42.931526",
+      "date": "2026-05-03",
+      "time": "11:49:42",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T11:49:53.209085",
+      "date": "2026-05-03",
+      "time": "11:49:53",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:50:19.206872",
+      "date": "2026-05-03",
+      "time": "11:50:19",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T11:50:19.858263",
+      "date": "2026-05-03",
+      "time": "11:50:19",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:50:21.832371",
+      "date": "2026-05-03",
+      "time": "11:50:21",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0148
+    },
+    {
+      "timestamp": "2026-05-03T11:50:22.996875",
+      "date": "2026-05-03",
+      "time": "11:50:22",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:50:25.389979",
+      "date": "2026-05-03",
+      "time": "11:50:25",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0312
+    },
+    {
+      "timestamp": "2026-05-03T11:50:26.944731",
+      "date": "2026-05-03",
+      "time": "11:50:26",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:50:29.360963",
+      "date": "2026-05-03",
+      "time": "11:50:29",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:50:30.312497",
+      "date": "2026-05-03",
+      "time": "11:50:30",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:50:32.186028",
+      "date": "2026-05-03",
+      "time": "11:50:32",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T11:50:32.622600",
+      "date": "2026-05-03",
+      "time": "11:50:32",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:50:32.990815",
+      "date": "2026-05-03",
+      "time": "11:50:32",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:50:33.823077",
+      "date": "2026-05-03",
+      "time": "11:50:33",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:52:34.486588",
+      "date": "2026-05-03",
+      "time": "11:52:34",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:52:38.139754",
+      "date": "2026-05-03",
+      "time": "11:52:38",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0005
+    },
+    {
+      "timestamp": "2026-05-03T11:52:38.379714",
+      "date": "2026-05-03",
+      "time": "11:52:38",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:53:18.900093",
+      "date": "2026-05-03",
+      "time": "11:53:18",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T11:53:20.007730",
+      "date": "2026-05-03",
+      "time": "11:53:20",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:53:24.647725",
+      "date": "2026-05-03",
+      "time": "11:53:24",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:53:24.669099",
+      "date": "2026-05-03",
+      "time": "11:53:24",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0008
+    },
+    {
+      "timestamp": "2026-05-03T11:53:24.688207",
+      "date": "2026-05-03",
+      "time": "11:53:24",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0007
+    },
+    {
+      "timestamp": "2026-05-03T11:53:24.716624",
+      "date": "2026-05-03",
+      "time": "11:53:24",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T11:53:34.482740",
+      "date": "2026-05-03",
+      "time": "11:53:34",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:53:34.504751",
+      "date": "2026-05-03",
+      "time": "11:53:34",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:53:34.529293",
+      "date": "2026-05-03",
+      "time": "11:53:34",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:53:34.546476",
+      "date": "2026-05-03",
+      "time": "11:53:34",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:54:34.856596",
+      "date": "2026-05-03",
+      "time": "11:54:34",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.1273
+    },
+    {
+      "timestamp": "2026-05-03T11:54:39.728074",
+      "date": "2026-05-03",
+      "time": "11:54:39",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 3,
+      "watts": 60,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:54:43.859209",
+      "date": "2026-05-03",
+      "time": "11:54:43",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0003
+    },
+    {
+      "timestamp": "2026-05-03T11:54:45.610825",
+      "date": "2026-05-03",
+      "time": "11:54:45",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:54:47.081639",
+      "date": "2026-05-03",
+      "time": "11:54:47",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:54:48.662046",
+      "date": "2026-05-03",
+      "time": "11:54:48",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:54:50.281133",
+      "date": "2026-05-03",
+      "time": "11:54:50",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 4,
+      "watts": 75,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T11:54:51.725336",
+      "date": "2026-05-03",
+      "time": "11:54:51",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:54:53.791854",
+      "date": "2026-05-03",
+      "time": "11:54:53",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 5,
+      "watts": 90,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T11:54:57.601706",
+      "date": "2026-05-03",
+      "time": "11:54:57",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T11:55:00.056143",
+      "date": "2026-05-03",
+      "time": "11:55:00",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:55:02.339674",
+      "date": "2026-05-03",
+      "time": "11:55:02",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:55:03.971440",
+      "date": "2026-05-03",
+      "time": "11:55:03",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:55:05.596827",
+      "date": "2026-05-03",
+      "time": "11:55:05",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:55:06.920727",
+      "date": "2026-05-03",
+      "time": "11:55:06",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:55:08.377850",
+      "date": "2026-05-03",
+      "time": "11:55:08",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:55:47.574556",
+      "date": "2026-05-03",
+      "time": "11:55:47",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 3,
+      "watts": 60,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:55:51.080201",
+      "date": "2026-05-03",
+      "time": "11:55:51",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T11:55:51.106430",
+      "date": "2026-05-03",
+      "time": "11:55:51",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0006
+    },
+    {
+      "timestamp": "2026-05-03T11:55:51.125133",
+      "date": "2026-05-03",
+      "time": "11:55:51",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0006
+    },
+    {
+      "timestamp": "2026-05-03T11:55:51.148882",
+      "date": "2026-05-03",
+      "time": "11:55:51",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0006
+    },
+    {
+      "timestamp": "2026-05-03T12:15:51.086437",
+      "date": "2026-05-03",
+      "time": "12:15:51",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:16:17.911281",
+      "date": "2026-05-03",
+      "time": "12:16:17",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:16:22.361875",
+      "date": "2026-05-03",
+      "time": "12:16:22",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T12:16:23.122903",
+      "date": "2026-05-03",
+      "time": "12:16:23",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:17:58.506731",
+      "date": "2026-05-03",
+      "time": "12:17:58",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0004
+    },
+    {
+      "timestamp": "2026-05-03T12:18:00.098506",
+      "date": "2026-05-03",
+      "time": "12:18:00",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:18:04.731207",
+      "date": "2026-05-03",
+      "time": "12:18:04",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0004
+    },
+    {
+      "timestamp": "2026-05-03T12:18:05.336961",
+      "date": "2026-05-03",
+      "time": "12:18:05",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:18:08.091044",
+      "date": "2026-05-03",
+      "time": "12:18:08",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:18:09.881741",
+      "date": "2026-05-03",
+      "time": "12:18:09",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:19:06.003909",
+      "date": "2026-05-03",
+      "time": "12:19:06",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T12:19:07.209987",
+      "date": "2026-05-03",
+      "time": "12:19:07",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:19:09.934104",
+      "date": "2026-05-03",
+      "time": "12:19:09",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:19:10.883932",
+      "date": "2026-05-03",
+      "time": "12:19:10",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:19:42.038211",
+      "date": "2026-05-03",
+      "time": "12:19:42",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0004
+    },
+    {
+      "timestamp": "2026-05-03T12:19:44.154105",
+      "date": "2026-05-03",
+      "time": "12:19:44",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T12:20:35.551696",
+      "date": "2026-05-03",
+      "time": "12:20:35",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:20:35.576971",
+      "date": "2026-05-03",
+      "time": "12:20:35",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:20:35.598758",
+      "date": "2026-05-03",
+      "time": "12:20:35",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:20:35.619172",
+      "date": "2026-05-03",
+      "time": "12:20:35",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:20:59.487406",
+      "date": "2026-05-03",
+      "time": "12:20:59",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T12:21:01.504637",
+      "date": "2026-05-03",
+      "time": "12:21:01",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:21:03.046062",
+      "date": "2026-05-03",
+      "time": "12:21:03",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:21:05.953504",
+      "date": "2026-05-03",
+      "time": "12:21:05",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:21:08.049455",
+      "date": "2026-05-03",
+      "time": "12:21:08",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:21:20.188387",
+      "date": "2026-05-03",
+      "time": "12:21:20",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:21:21.970485",
+      "date": "2026-05-03",
+      "time": "12:21:21",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:21:28.081045",
+      "date": "2026-05-03",
+      "time": "12:21:28",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:21:30.846208",
+      "date": "2026-05-03",
+      "time": "12:21:30",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 4,
+      "watts": 75,
+      "kwh_this_session": 0.0257
+    },
+    {
+      "timestamp": "2026-05-03T12:21:34.196996",
+      "date": "2026-05-03",
+      "time": "12:21:34",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 5,
+      "watts": 90,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T12:21:35.983063",
+      "date": "2026-05-03",
+      "time": "12:21:35",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:21:38.885747",
+      "date": "2026-05-03",
+      "time": "12:21:38",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:21:40.208915",
+      "date": "2026-05-03",
+      "time": "12:21:40",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 5,
+      "watts": 90,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T12:21:42.665972",
+      "date": "2026-05-03",
+      "time": "12:21:42",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T12:21:47.276578",
+      "date": "2026-05-03",
+      "time": "12:21:47",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 1,
+      "watts": 20,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T12:21:53.565455",
+      "date": "2026-05-03",
+      "time": "12:21:53",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T14:16:27.976998",
+      "date": "2026-05-03",
+      "time": "14:16:27",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:17:04.899975",
+      "date": "2026-05-03",
+      "time": "14:17:04",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T14:17:04.933904",
+      "date": "2026-05-03",
+      "time": "14:17:04",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0291
+    },
+    {
+      "timestamp": "2026-05-03T14:17:04.961874",
+      "date": "2026-05-03",
+      "time": "14:17:04",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0291
+    },
+    {
+      "timestamp": "2026-05-03T14:17:04.991766",
+      "date": "2026-05-03",
+      "time": "14:17:04",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0291
+    },
+    {
+      "timestamp": "2026-05-03T14:17:22.093588",
+      "date": "2026-05-03",
+      "time": "14:17:22",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:17:22.923169",
+      "date": "2026-05-03",
+      "time": "14:17:22",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:17:29.769700",
+      "date": "2026-05-03",
+      "time": "14:17:29",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:17:30.796216",
+      "date": "2026-05-03",
+      "time": "14:17:30",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:18:08.686541",
+      "date": "2026-05-03",
+      "time": "14:18:08",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:18:15.700393",
+      "date": "2026-05-03",
+      "time": "14:18:15",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:18:54.983376",
+      "date": "2026-05-03",
+      "time": "14:18:54",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:18:59.113695",
+      "date": "2026-05-03",
+      "time": "14:18:59",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:19:02.526820",
+      "date": "2026-05-03",
+      "time": "14:19:02",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:19:03.911113",
+      "date": "2026-05-03",
+      "time": "14:19:03",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:19:09.569546",
+      "date": "2026-05-03",
+      "time": "14:19:09",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:19:12.264623",
+      "date": "2026-05-03",
+      "time": "14:19:12",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:21:06.113246",
+      "date": "2026-05-03",
+      "time": "14:21:06",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:21:17.749938",
+      "date": "2026-05-03",
+      "time": "14:21:17",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:21:50.846518",
+      "date": "2026-05-03",
+      "time": "14:21:50",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:21:53.685934",
+      "date": "2026-05-03",
+      "time": "14:21:53",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:21:55.389587",
+      "date": "2026-05-03",
+      "time": "14:21:55",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.04
+    },
+    {
+      "timestamp": "2026-05-03T14:21:58.087650",
+      "date": "2026-05-03",
+      "time": "14:21:58",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:22:01.295476",
+      "date": "2026-05-03",
+      "time": "14:22:01",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:22:04.040737",
+      "date": "2026-05-03",
+      "time": "14:22:04",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 3,
+      "watts": 60,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:22:09.089748",
+      "date": "2026-05-03",
+      "time": "14:22:09",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T14:22:10.745266",
+      "date": "2026-05-03",
+      "time": "14:22:10",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 1,
+      "watts": 20,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:22:12.286228",
+      "date": "2026-05-03",
+      "time": "14:22:12",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 2,
+      "watts": 40,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:22:13.714497",
+      "date": "2026-05-03",
+      "time": "14:22:13",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:22:15.954344",
+      "date": "2026-05-03",
+      "time": "14:22:15",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:22:19.185157",
+      "date": "2026-05-03",
+      "time": "14:22:19",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 1,
+      "watts": 20,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T14:22:20.971726",
+      "date": "2026-05-03",
+      "time": "14:22:20",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:22:22.267358",
+      "date": "2026-05-03",
+      "time": "14:22:22",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:22:30.820678",
+      "date": "2026-05-03",
+      "time": "14:22:30",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0011
+    },
+    {
+      "timestamp": "2026-05-03T14:23:02.572025",
+      "date": "2026-05-03",
+      "time": "14:23:02",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T14:23:05.663645",
+      "date": "2026-05-03",
+      "time": "14:23:05",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0012
+    },
+    {
+      "timestamp": "2026-05-03T14:23:08.764908",
+      "date": "2026-05-03",
+      "time": "14:23:08",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:23:10.228702",
+      "date": "2026-05-03",
+      "time": "14:23:10",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:23:11.855571",
+      "date": "2026-05-03",
+      "time": "14:23:11",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:23:14.873792",
+      "date": "2026-05-03",
+      "time": "14:23:14",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:23:32.777904",
+      "date": "2026-05-03",
+      "time": "14:23:32",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T14:23:32.802279",
+      "date": "2026-05-03",
+      "time": "14:23:32",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T14:23:32.842040",
+      "date": "2026-05-03",
+      "time": "14:23:32",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T14:23:32.869017",
+      "date": "2026-05-03",
+      "time": "14:23:32",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T14:24:22.934442",
+      "date": "2026-05-03",
+      "time": "14:24:22",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:24:22.964616",
+      "date": "2026-05-03",
+      "time": "14:24:22",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:24:22.993293",
+      "date": "2026-05-03",
+      "time": "14:24:22",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:24:23.025023",
+      "date": "2026-05-03",
+      "time": "14:24:23",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:25:39.153520",
+      "date": "2026-05-03",
+      "time": "14:25:39",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:25:41.706368",
+      "date": "2026-05-03",
+      "time": "14:25:41",
+      "room": "bedroom",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.16
+    },
+    {
+      "timestamp": "2026-05-03T14:25:43.783835",
+      "date": "2026-05-03",
+      "time": "14:25:43",
+      "room": "kitchen",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.16
+    },
+    {
+      "timestamp": "2026-05-03T14:26:29.680594",
+      "date": "2026-05-03",
+      "time": "14:26:29",
+      "room": "living",
+      "device": "ac",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:26:29.715606",
+      "date": "2026-05-03",
+      "time": "14:26:29",
+      "room": "living",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:26:29.741364",
+      "date": "2026-05-03",
+      "time": "14:26:29",
+      "room": "bedroom",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:26:29.769788",
+      "date": "2026-05-03",
+      "time": "14:26:29",
+      "room": "kitchen",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:26:29.794472",
+      "date": "2026-05-03",
+      "time": "14:26:29",
+      "room": "balcony",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:26:52.274524",
+      "date": "2026-05-03",
+      "time": "14:26:52",
+      "room": "bedroom",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:26:53.048013",
+      "date": "2026-05-03",
+      "time": "14:26:53",
+      "room": "bedroom",
+      "device": "curtain",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:26:54.099011",
+      "date": "2026-05-03",
+      "time": "14:26:54",
+      "room": "bedroom",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:26:58.773354",
+      "date": "2026-05-03",
+      "time": "14:26:58",
+      "room": "kitchen",
+      "device": "curtain",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:26:59.439154",
+      "date": "2026-05-03",
+      "time": "14:26:59",
+      "room": "kitchen",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:27:00.826781",
+      "date": "2026-05-03",
+      "time": "14:27:00",
+      "room": "kitchen",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:27:01.650033",
+      "date": "2026-05-03",
+      "time": "14:27:01",
+      "room": "kitchen",
+      "device": "curtain",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:37:47.846069",
+      "date": "2026-05-03",
+      "time": "14:37:47",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:37:48.926611",
+      "date": "2026-05-03",
+      "time": "14:37:48",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:38:33.651527",
+      "date": "2026-05-03",
+      "time": "14:38:33",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:38:47.995214",
+      "date": "2026-05-03",
+      "time": "14:38:47",
+      "room": "kitchen",
+      "device": "fan_speed",
+      "state": 1,
+      "watts": 20,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:41:37.137072",
+      "date": "2026-05-03",
+      "time": "14:41:37",
+      "room": "bedroom",
+      "device": "fan_speed",
+      "state": 3,
+      "watts": 60,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:42:10.721392",
+      "date": "2026-05-03",
+      "time": "14:42:10",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:42:22.073358",
+      "date": "2026-05-03",
+      "time": "14:42:22",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:42:37.547508",
+      "date": "2026-05-03",
+      "time": "14:42:37",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:43:12.885552",
+      "date": "2026-05-03",
+      "time": "14:43:12",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:43:33.942326",
+      "date": "2026-05-03",
+      "time": "14:43:33",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:44:19.569074",
+      "date": "2026-05-03",
+      "time": "14:44:19",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0014
+    },
+    {
+      "timestamp": "2026-05-03T14:44:40.557675",
+      "date": "2026-05-03",
+      "time": "14:44:40",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0003
+    },
+    {
+      "timestamp": "2026-05-03T14:45:31.374824",
+      "date": "2026-05-03",
+      "time": "14:45:31",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:45:40.143042",
+      "date": "2026-05-03",
+      "time": "14:45:40",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:48:25.665223",
+      "date": "2026-05-03",
+      "time": "14:48:25",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0007
+    },
+    {
+      "timestamp": "2026-05-03T14:48:25.695117",
+      "date": "2026-05-03",
+      "time": "14:48:25",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:48:25.724815",
+      "date": "2026-05-03",
+      "time": "14:48:25",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0016
+    },
+    {
+      "timestamp": "2026-05-03T14:51:24.816700",
+      "date": "2026-05-03",
+      "time": "14:51:24",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:51:56.393021",
+      "date": "2026-05-03",
+      "time": "14:51:56",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:52:08.154514",
+      "date": "2026-05-03",
+      "time": "14:52:08",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:52:08.182129",
+      "date": "2026-05-03",
+      "time": "14:52:08",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:52:08.213055",
+      "date": "2026-05-03",
+      "time": "14:52:08",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:52:08.241325",
+      "date": "2026-05-03",
+      "time": "14:52:08",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0024
+    },
+    {
+      "timestamp": "2026-05-03T14:52:23.579650",
+      "date": "2026-05-03",
+      "time": "14:52:23",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:52:23.617579",
+      "date": "2026-05-03",
+      "time": "14:52:23",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:52:23.646702",
+      "date": "2026-05-03",
+      "time": "14:52:23",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:52:23.676654",
+      "date": "2026-05-03",
+      "time": "14:52:23",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:52:33.096742",
+      "date": "2026-05-03",
+      "time": "14:52:33",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:52:33.129173",
+      "date": "2026-05-03",
+      "time": "14:52:33",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:52:33.154194",
+      "date": "2026-05-03",
+      "time": "14:52:33",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:52:33.190773",
+      "date": "2026-05-03",
+      "time": "14:52:33",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:55:30.105048",
+      "date": "2026-05-03",
+      "time": "14:55:30",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:55:30.124828",
+      "date": "2026-05-03",
+      "time": "14:55:30",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:55:30.149861",
+      "date": "2026-05-03",
+      "time": "14:55:30",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:55:30.170277",
+      "date": "2026-05-03",
+      "time": "14:55:30",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:56:00.926625",
+      "date": "2026-05-03",
+      "time": "14:56:00",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T14:56:02.893443",
+      "date": "2026-05-03",
+      "time": "14:56:02",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:56:22.542202",
+      "date": "2026-05-03",
+      "time": "14:56:22",
+      "room": "living",
+      "device": "dimmer",
+      "state": 80,
+      "watts": 12,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T14:56:22.987772",
+      "date": "2026-05-03",
+      "time": "14:56:22",
+      "room": "living",
+      "device": "dimmer",
+      "state": 82,
+      "watts": 12,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T15:10:57.871223",
+      "date": "2026-05-03",
+      "time": "15:10:57",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0037
+    },
+    {
+      "timestamp": "2026-05-03T15:11:05.426583",
+      "date": "2026-05-03",
+      "time": "15:11:05",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0039
+    },
+    {
+      "timestamp": "2026-05-03T15:12:19.164857",
+      "date": "2026-05-03",
+      "time": "15:12:19",
+      "room": "bedroom",
+      "device": "curtain",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T15:17:05.794294",
+      "date": "2026-05-03",
+      "time": "15:17:05",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T15:17:07.352348",
+      "date": "2026-05-03",
+      "time": "15:17:07",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T15:17:09.925166",
+      "date": "2026-05-03",
+      "time": "15:17:09",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T15:17:11.554736",
+      "date": "2026-05-03",
+      "time": "15:17:11",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T15:18:16.822452",
+      "date": "2026-05-03",
+      "time": "15:18:16",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T15:19:07.692716",
+      "date": "2026-05-03",
+      "time": "15:19:07",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T15:19:11.697774",
+      "date": "2026-05-03",
+      "time": "15:19:11",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0059
+    },
+    {
+      "timestamp": "2026-05-03T15:24:48.464223",
+      "date": "2026-05-03",
+      "time": "15:24:48",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T15:25:27.240781",
+      "date": "2026-05-03",
+      "time": "15:25:27",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T15:25:56.155469",
+      "date": "2026-05-03",
+      "time": "15:25:56",
+      "room": "living",
+      "device": "curtain",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T15:29:24.651399",
+      "date": "2026-05-03",
+      "time": "15:29:24",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.001
+    },
+    {
+      "timestamp": "2026-05-03T17:31:11.606466",
+      "date": "2026-05-03",
+      "time": "17:31:11",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:31:36.257531",
+      "date": "2026-05-03",
+      "time": "17:31:36",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:32:23.652841",
+      "date": "2026-05-03",
+      "time": "17:32:23",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0307
+    },
+    {
+      "timestamp": "2026-05-03T17:32:24.960977",
+      "date": "2026-05-03",
+      "time": "17:32:24",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:32:27.938831",
+      "date": "2026-05-03",
+      "time": "17:32:27",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0319
+    },
+    {
+      "timestamp": "2026-05-03T17:32:29.083529",
+      "date": "2026-05-03",
+      "time": "17:32:29",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:34:30.705706",
+      "date": "2026-05-03",
+      "time": "17:34:30",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0005
+    },
+    {
+      "timestamp": "2026-05-03T17:38:37.178503",
+      "date": "2026-05-03",
+      "time": "17:38:37",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0018
+    },
+    {
+      "timestamp": "2026-05-03T17:38:47.441405",
+      "date": "2026-05-03",
+      "time": "17:38:47",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:39:11.271170",
+      "date": "2026-05-03",
+      "time": "17:39:11",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:40:09.989324",
+      "date": "2026-05-03",
+      "time": "17:40:09",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:40:12.995865",
+      "date": "2026-05-03",
+      "time": "17:40:12",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:40:14.387274",
+      "date": "2026-05-03",
+      "time": "17:40:14",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:40:22.630514",
+      "date": "2026-05-03",
+      "time": "17:40:22",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0003
+    },
+    {
+      "timestamp": "2026-05-03T17:40:22.663750",
+      "date": "2026-05-03",
+      "time": "17:40:22",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.002
+    },
+    {
+      "timestamp": "2026-05-03T17:40:22.683676",
+      "date": "2026-05-03",
+      "time": "17:40:22",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0412
+    },
+    {
+      "timestamp": "2026-05-03T17:40:22.726211",
+      "date": "2026-05-03",
+      "time": "17:40:22",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:40:33.605372",
+      "date": "2026-05-03",
+      "time": "17:40:33",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:40:33.630380",
+      "date": "2026-05-03",
+      "time": "17:40:33",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:40:33.664034",
+      "date": "2026-05-03",
+      "time": "17:40:33",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:40:33.695162",
+      "date": "2026-05-03",
+      "time": "17:40:33",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:41:14.381740",
+      "date": "2026-05-03",
+      "time": "17:41:14",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 3,
+      "watts": 60,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:41:30.276875",
+      "date": "2026-05-03",
+      "time": "17:41:30",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T17:41:30.305310",
+      "date": "2026-05-03",
+      "time": "17:41:30",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T17:41:30.335511",
+      "date": "2026-05-03",
+      "time": "17:41:30",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T17:41:30.364969",
+      "date": "2026-05-03",
+      "time": "17:41:30",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0002
+    },
+    {
+      "timestamp": "2026-05-03T17:41:33.232923",
+      "date": "2026-05-03",
+      "time": "17:41:33",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:43:38.880067",
+      "date": "2026-05-03",
+      "time": "17:43:38",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:43:47.442629",
+      "date": "2026-05-03",
+      "time": "17:43:47",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:43:47.473738",
+      "date": "2026-05-03",
+      "time": "17:43:47",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0006
+    },
+    {
+      "timestamp": "2026-05-03T17:43:47.505063",
+      "date": "2026-05-03",
+      "time": "17:43:47",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:43:47.531978",
+      "date": "2026-05-03",
+      "time": "17:43:47",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:44:43.828422",
+      "date": "2026-05-03",
+      "time": "17:44:43",
+      "room": "bedroom",
+      "device": "ac",
+      "state": true,
+      "watts": 1500,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:45:19.067090",
+      "date": "2026-05-03",
+      "time": "17:45:19",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0004
+    },
+    {
+      "timestamp": "2026-05-03T17:45:19.107745",
+      "date": "2026-05-03",
+      "time": "17:45:19",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0004
+    },
+    {
+      "timestamp": "2026-05-03T17:45:19.135896",
+      "date": "2026-05-03",
+      "time": "17:45:19",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0004
+    },
+    {
+      "timestamp": "2026-05-03T17:45:19.169774",
+      "date": "2026-05-03",
+      "time": "17:45:19",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0004
+    },
+    {
+      "timestamp": "2026-05-03T17:45:37.230255",
+      "date": "2026-05-03",
+      "time": "17:45:37",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:45:40.177282",
+      "date": "2026-05-03",
+      "time": "17:45:40",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:45:42.156949",
+      "date": "2026-05-03",
+      "time": "17:45:42",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:45:44.213343",
+      "date": "2026-05-03",
+      "time": "17:45:44",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:45:47.777652",
+      "date": "2026-05-03",
+      "time": "17:45:47",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:45:49.721755",
+      "date": "2026-05-03",
+      "time": "17:45:49",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 4,
+      "watts": 75,
+      "kwh_this_session": 0.0046
+    },
+    {
+      "timestamp": "2026-05-03T17:45:51.809697",
+      "date": "2026-05-03",
+      "time": "17:45:51",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 5,
+      "watts": 90,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:45:53.453747",
+      "date": "2026-05-03",
+      "time": "17:45:53",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:45:54.872238",
+      "date": "2026-05-03",
+      "time": "17:45:54",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T17:46:11.304714",
+      "date": "2026-05-03",
+      "time": "17:46:11",
+      "room": "living",
+      "device": "curtain",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:46:12.140479",
+      "date": "2026-05-03",
+      "time": "17:46:12",
+      "room": "living",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:46:13.320514",
+      "date": "2026-05-03",
+      "time": "17:46:13",
+      "room": "living",
+      "device": "curtain",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:46:14.454340",
+      "date": "2026-05-03",
+      "time": "17:46:14",
+      "room": "living",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:46:15.354604",
+      "date": "2026-05-03",
+      "time": "17:46:15",
+      "room": "living",
+      "device": "curtain",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:47:22.158045",
+      "date": "2026-05-03",
+      "time": "17:47:22",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:47:23.707015",
+      "date": "2026-05-03",
+      "time": "17:47:23",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:47:26.528736",
+      "date": "2026-05-03",
+      "time": "17:47:26",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:47:28.799957",
+      "date": "2026-05-03",
+      "time": "17:47:28",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:47:41.524691",
+      "date": "2026-05-03",
+      "time": "17:47:41",
+      "room": "bedroom",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.1861
+    },
+    {
+      "timestamp": "2026-05-03T17:47:44.389538",
+      "date": "2026-05-03",
+      "time": "17:47:44",
+      "room": "kitchen",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.063
+    },
+    {
+      "timestamp": "2026-05-03T17:50:48.111950",
+      "date": "2026-05-03",
+      "time": "17:50:48",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:52:52.772223",
+      "date": "2026-05-03",
+      "time": "17:52:52",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0005
+    },
+    {
+      "timestamp": "2026-05-03T17:52:54.712556",
+      "date": "2026-05-03",
+      "time": "17:52:54",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:54:28.430485",
+      "date": "2026-05-03",
+      "time": "17:54:28",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:54:28.605543",
+      "date": "2026-05-03",
+      "time": "17:54:28",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:58:46.464943",
+      "date": "2026-05-03",
+      "time": "17:58:46",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:58:48.562850",
+      "date": "2026-05-03",
+      "time": "17:58:48",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:58:50.660727",
+      "date": "2026-05-03",
+      "time": "17:58:50",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0015
+    },
+    {
+      "timestamp": "2026-05-03T17:58:51.373320",
+      "date": "2026-05-03",
+      "time": "17:58:51",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:59:14.575740",
+      "date": "2026-05-03",
+      "time": "17:59:14",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:59:14.604838",
+      "date": "2026-05-03",
+      "time": "17:59:14",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T17:59:14.632655",
+      "date": "2026-05-03",
+      "time": "17:59:14",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:59:14.659553",
+      "date": "2026-05-03",
+      "time": "17:59:14",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:59:47.333696",
+      "date": "2026-05-03",
+      "time": "17:59:47",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:59:54.118703",
+      "date": "2026-05-03",
+      "time": "17:59:54",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T17:59:56.078477",
+      "date": "2026-05-03",
+      "time": "17:59:56",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:00:23.908575",
+      "date": "2026-05-03",
+      "time": "18:00:23",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T18:03:24.071550",
+      "date": "2026-05-03",
+      "time": "18:03:24",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:03:27.758838",
+      "date": "2026-05-03",
+      "time": "18:03:27",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:03:30.238530",
+      "date": "2026-05-03",
+      "time": "18:03:30",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:07:26.763442",
+      "date": "2026-05-03",
+      "time": "18:07:26",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.001
+    },
+    {
+      "timestamp": "2026-05-03T18:07:27.662442",
+      "date": "2026-05-03",
+      "time": "18:07:27",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:07:32.792869",
+      "date": "2026-05-03",
+      "time": "18:07:32",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:07:33.716638",
+      "date": "2026-05-03",
+      "time": "18:07:33",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:07:50.575242",
+      "date": "2026-05-03",
+      "time": "18:07:50",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0011
+    },
+    {
+      "timestamp": "2026-05-03T18:07:50.603514",
+      "date": "2026-05-03",
+      "time": "18:07:50",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:07:50.632246",
+      "date": "2026-05-03",
+      "time": "18:07:50",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-03T18:07:50.652232",
+      "date": "2026-05-03",
+      "time": "18:07:50",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0011
+    },
+    {
+      "timestamp": "2026-05-03T18:07:53.163898",
+      "date": "2026-05-03",
+      "time": "18:07:53",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:07:56.201219",
+      "date": "2026-05-03",
+      "time": "18:07:56",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:07:58.124071",
+      "date": "2026-05-03",
+      "time": "18:07:58",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:08:07.277443",
+      "date": "2026-05-03",
+      "time": "18:08:07",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:08:10.690466",
+      "date": "2026-05-03",
+      "time": "18:08:10",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:08:12.491523",
+      "date": "2026-05-03",
+      "time": "18:08:12",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:09:33.187260",
+      "date": "2026-05-03",
+      "time": "18:09:33",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:09:35.765440",
+      "date": "2026-05-03",
+      "time": "18:09:35",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:09:37.304663",
+      "date": "2026-05-03",
+      "time": "18:09:37",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:13:20.310649",
+      "date": "2026-05-03",
+      "time": "18:13:20",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0009
+    },
+    {
+      "timestamp": "2026-05-03T18:13:20.334227",
+      "date": "2026-05-03",
+      "time": "18:13:20",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0013
+    },
+    {
+      "timestamp": "2026-05-03T18:13:20.359231",
+      "date": "2026-05-03",
+      "time": "18:13:20",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:13:20.393090",
+      "date": "2026-05-03",
+      "time": "18:13:20",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0013
+    },
+    {
+      "timestamp": "2026-05-03T18:13:35.578490",
+      "date": "2026-05-03",
+      "time": "18:13:35",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:13:35.608859",
+      "date": "2026-05-03",
+      "time": "18:13:35",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:13:35.638878",
+      "date": "2026-05-03",
+      "time": "18:13:35",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:17:22.831781",
+      "date": "2026-05-03",
+      "time": "18:17:22",
+      "room": "bedroom",
+      "device": "ac",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.8163
+    },
+    {
+      "timestamp": "2026-05-03T18:17:25.008500",
+      "date": "2026-05-03",
+      "time": "18:17:25",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.001
+    },
+    {
+      "timestamp": "2026-05-03T18:17:25.918956",
+      "date": "2026-05-03",
+      "time": "18:17:25",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:18:44.280390",
+      "date": "2026-05-03",
+      "time": "18:18:44",
+      "room": "living",
+      "device": "ac",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:18:44.318486",
+      "date": "2026-05-03",
+      "time": "18:18:44",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:18:44.347976",
+      "date": "2026-05-03",
+      "time": "18:18:44",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0013
+    },
+    {
+      "timestamp": "2026-05-03T18:18:44.380615",
+      "date": "2026-05-03",
+      "time": "18:18:44",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0003
+    },
+    {
+      "timestamp": "2026-05-03T18:18:44.410705",
+      "date": "2026-05-03",
+      "time": "18:18:44",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:18:44.448691",
+      "date": "2026-05-03",
+      "time": "18:18:44",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0013
+    },
+    {
+      "timestamp": "2026-05-03T18:23:06.102043",
+      "date": "2026-05-03",
+      "time": "18:23:06",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0011
+    },
+    {
+      "timestamp": "2026-05-03T18:23:06.123975",
+      "date": "2026-05-03",
+      "time": "18:23:06",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0011
+    },
+    {
+      "timestamp": "2026-05-03T18:23:06.146269",
+      "date": "2026-05-03",
+      "time": "18:23:06",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:23:06.170209",
+      "date": "2026-05-03",
+      "time": "18:23:06",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0011
+    },
+    {
+      "timestamp": "2026-05-03T18:23:14.161333",
+      "date": "2026-05-03",
+      "time": "18:23:14",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:23:16.298029",
+      "date": "2026-05-03",
+      "time": "18:23:16",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:23:17.683724",
+      "date": "2026-05-03",
+      "time": "18:23:17",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:27:48.473404",
+      "date": "2026-05-03",
+      "time": "18:27:48",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0011
+    },
+    {
+      "timestamp": "2026-05-03T18:27:53.020626",
+      "date": "2026-05-03",
+      "time": "18:27:53",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:27:54.240572",
+      "date": "2026-05-03",
+      "time": "18:27:54",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:27:56.500192",
+      "date": "2026-05-03",
+      "time": "18:27:56",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0012
+    },
+    {
+      "timestamp": "2026-05-03T18:27:58.510257",
+      "date": "2026-05-03",
+      "time": "18:27:58",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0012
+    },
+    {
+      "timestamp": "2026-05-03T18:28:28.416639",
+      "date": "2026-05-03",
+      "time": "18:28:28",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:28:36.260014",
+      "date": "2026-05-03",
+      "time": "18:28:36",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:28:50.559523",
+      "date": "2026-05-03",
+      "time": "18:28:50",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:28:53.326964",
+      "date": "2026-05-03",
+      "time": "18:28:53",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:28:55.365806",
+      "date": "2026-05-03",
+      "time": "18:28:55",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:28:57.449597",
+      "date": "2026-05-03",
+      "time": "18:28:57",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:28:58.983124",
+      "date": "2026-05-03",
+      "time": "18:28:58",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:29:02.519176",
+      "date": "2026-05-03",
+      "time": "18:29:02",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:29:05.805515",
+      "date": "2026-05-03",
+      "time": "18:29:05",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:29:12.930545",
+      "date": "2026-05-03",
+      "time": "18:29:12",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:29:17.309366",
+      "date": "2026-05-03",
+      "time": "18:29:17",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 3,
+      "watts": 60,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:29:19.699400",
+      "date": "2026-05-03",
+      "time": "18:29:19",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 4,
+      "watts": 75,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:29:21.298002",
+      "date": "2026-05-03",
+      "time": "18:29:21",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 5,
+      "watts": 90,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:29:22.893160",
+      "date": "2026-05-03",
+      "time": "18:29:22",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 4,
+      "watts": 75,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:29:24.566113",
+      "date": "2026-05-03",
+      "time": "18:29:24",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:30:30.963653",
+      "date": "2026-05-03",
+      "time": "18:30:30",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0005
+    },
+    {
+      "timestamp": "2026-05-03T18:30:44.350454",
+      "date": "2026-05-03",
+      "time": "18:30:44",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0003
+    },
+    {
+      "timestamp": "2026-05-03T18:30:44.380977",
+      "date": "2026-05-03",
+      "time": "18:30:44",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-03T18:30:44.409513",
+      "date": "2026-05-03",
+      "time": "18:30:44",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0005
+    },
+    {
+      "timestamp": "2026-05-03T18:30:44.438469",
+      "date": "2026-05-03",
+      "time": "18:30:44",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:45:45.903016",
+      "date": "2026-05-04",
+      "time": "07:45:45",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:45:46.931938",
+      "date": "2026-05-04",
+      "time": "07:45:46",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:46:18.992706",
+      "date": "2026-05-04",
+      "time": "07:46:18",
+      "room": "living",
+      "device": "fan_speed",
+      "state": 0,
+      "watts": 0,
+      "kwh_this_session": 0.6
+    },
+    {
+      "timestamp": "2026-05-04T07:46:36.543119",
+      "date": "2026-05-04",
+      "time": "07:46:36",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:46:36.566971",
+      "date": "2026-05-04",
+      "time": "07:46:36",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:46:36.590479",
+      "date": "2026-05-04",
+      "time": "07:46:36",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:46:36.607467",
+      "date": "2026-05-04",
+      "time": "07:46:36",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:47:02.264127",
+      "date": "2026-05-04",
+      "time": "07:47:02",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-04T07:47:02.300713",
+      "date": "2026-05-04",
+      "time": "07:47:02",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-04T07:47:02.324418",
+      "date": "2026-05-04",
+      "time": "07:47:02",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-04T07:47:02.340471",
+      "date": "2026-05-04",
+      "time": "07:47:02",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-04T07:48:42.820706",
+      "date": "2026-05-04",
+      "time": "07:48:42",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:48:42.847719",
+      "date": "2026-05-04",
+      "time": "07:48:42",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:48:42.866564",
+      "date": "2026-05-04",
+      "time": "07:48:42",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:48:42.892085",
+      "date": "2026-05-04",
+      "time": "07:48:42",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:48:59.296595",
+      "date": "2026-05-04",
+      "time": "07:48:59",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-04T07:48:59.323847",
+      "date": "2026-05-04",
+      "time": "07:48:59",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-04T07:48:59.357109",
+      "date": "2026-05-04",
+      "time": "07:48:59",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-04T07:48:59.384362",
+      "date": "2026-05-04",
+      "time": "07:48:59",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0001
+    },
+    {
+      "timestamp": "2026-05-04T07:49:02.765453",
+      "date": "2026-05-04",
+      "time": "07:49:02",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:49:20.993262",
+      "date": "2026-05-04",
+      "time": "07:49:20",
+      "room": "living",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:49:21.023063",
+      "date": "2026-05-04",
+      "time": "07:49:21",
+      "room": "bedroom",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:49:21.052901",
+      "date": "2026-05-04",
+      "time": "07:49:21",
+      "room": "balcony",
+      "device": "curtain",
+      "state": true,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:53:56.853455",
+      "date": "2026-05-04",
+      "time": "07:53:56",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:54:07.301791",
+      "date": "2026-05-04",
+      "time": "07:54:07",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:54:09.773913",
+      "date": "2026-05-04",
+      "time": "07:54:09",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T07:56:35.595037",
+      "date": "2026-05-04",
+      "time": "07:56:35",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0006
+    },
+    {
+      "timestamp": "2026-05-04T07:56:39.948284",
+      "date": "2026-05-04",
+      "time": "07:56:39",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0019
+    },
+    {
+      "timestamp": "2026-05-04T08:00:04.067574",
+      "date": "2026-05-04",
+      "time": "08:00:04",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T08:00:04.093872",
+      "date": "2026-05-04",
+      "time": "08:00:04",
+      "room": "bedroom",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T08:00:04.118513",
+      "date": "2026-05-04",
+      "time": "08:00:04",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T08:00:04.143628",
+      "date": "2026-05-04",
+      "time": "08:00:04",
+      "room": "balcony",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T08:01:54.795172",
+      "date": "2026-05-04",
+      "time": "08:01:54",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0005
+    },
+    {
+      "timestamp": "2026-05-04T08:02:06.254669",
+      "date": "2026-05-04",
+      "time": "08:02:06",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T08:03:13.159535",
+      "date": "2026-05-04",
+      "time": "08:03:13",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0003
+    },
+    {
+      "timestamp": "2026-05-04T08:03:13.188679",
+      "date": "2026-05-04",
+      "time": "08:03:13",
+      "room": "bedroom",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0008
+    },
+    {
+      "timestamp": "2026-05-04T08:03:13.223788",
+      "date": "2026-05-04",
+      "time": "08:03:13",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0008
+    },
+    {
+      "timestamp": "2026-05-04T08:03:13.246916",
+      "date": "2026-05-04",
+      "time": "08:03:13",
+      "room": "balcony",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0008
+    },
+    {
+      "timestamp": "2026-05-04T08:03:25.790996",
+      "date": "2026-05-04",
+      "time": "08:03:25",
+      "room": "living",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T08:06:59.291153",
+      "date": "2026-05-04",
+      "time": "08:06:59",
+      "room": "kitchen",
+      "device": "light",
+      "state": true,
+      "watts": 15,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T08:07:02.912180",
+      "date": "2026-05-04",
+      "time": "08:07:02",
+      "room": "kitchen",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0
+    },
+    {
+      "timestamp": "2026-05-04T08:07:07.543317",
+      "date": "2026-05-04",
+      "time": "08:07:07",
+      "room": "living",
+      "device": "light",
+      "state": false,
+      "watts": 0,
+      "kwh_this_session": 0.0009
+    }
+  ],
+  "daily_summary": {
+    "2026-04-24": {
+      "total_kwh": 0.0002,
+      "events": 22,
+      "cost_inr": 0.0
+    },
+    "2026-04-25": {
+      "total_kwh": 1.2406,
+      "events": 43,
+      "cost_inr": 9.92
+    },
+    "2026-04-26": {
+      "total_kwh": 17.0635,
+      "events": 133,
+      "cost_inr": 136.51
+    },
+    "2026-04-27": {
+      "total_kwh": 33.4479,
+      "events": 50,
+      "cost_inr": 267.58
+    },
+    "2026-05-01": {
+      "total_kwh": 6.5814,
+      "events": 41,
+      "cost_inr": 52.65
+    },
+    "2026-05-02": {
+      "total_kwh": 209.5653,
+      "events": 288,
+      "cost_inr": 1676.52
+    },
+    "2026-05-03": {
+      "total_kwh": 1.9873,
+      "events": 489,
+      "cost_inr": 15.9
+    },
+    "2026-05-04": {
+      "total_kwh": 0.6074,
+      "events": 42,
+      "cost_inr": 4.86
+    }
+  }
+}

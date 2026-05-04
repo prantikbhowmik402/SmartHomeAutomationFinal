@@ -1,0 +1,34 @@
+{
+  "living": {
+    "light": false,
+    "fan_speed": 0,
+    "curtain": true,
+    "dimmer": 50,
+    "inverter": false,
+    "ac": false
+  },
+  "bedroom": {
+    "light": false,
+    "fan_speed": 0,
+    "curtain": true,
+    "dimmer": 60,
+    "inverter": true,
+    "ac": false
+  },
+  "kitchen": {
+    "light": false,
+    "fan_speed": 0,
+    "curtain": false,
+    "dimmer": 0,
+    "inverter": false,
+    "ac": false
+  },
+  "balcony": {
+    "light": false,
+    "fan_speed": 1,
+    "curtain": true,
+    "dimmer": 0,
+    "inverter": false,
+    "ac": false
+  }
+}
